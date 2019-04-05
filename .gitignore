@@ -9,3 +9,4 @@ yarn.lock
 .directory
 .vscode
 package-lock.json
+robots.txt

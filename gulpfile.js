@@ -218,6 +218,15 @@ gulp.task("build", ["clean"], cb => {
   run("build:dev", "purifycss", ["rev", "htmlmin"], "ref", "generate-service-worker",cb);
 });
 
+
+gulp.task("generate", ["clean"], cb => {
+  env = "dev";
+  run("build:dev", cb => {
+    process.exit()
+  });
+
+});
+
 gulp.task("serve", ["build:dev"], () => {
   bs.init({
     reloadDebounce: 200,

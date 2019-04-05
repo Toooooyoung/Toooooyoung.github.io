@@ -1,0 +1,33 @@
+dist: bionic
+language: node_js
+cache:
+  directories:
+  - node_modules
+node_js:
+- 8.10.0
+branches:
+  only:
+  - write
+  - master
+addons:
+  apt:
+    update: true
+before_install:
+- wget -O /tmp/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.54.0/hugo_0.54.0_Linux-64bit.deb
+- sudo dpkg -i /tmp/hugo.deb
+- export TZ='Asia/Shanghai'
+- npm install -g npm@6.9.0
+- npm install -g gulp@3.9.1
+- npm install
+before_script:
+- openssl aes-256-cbc -K $encrypted_329bc7822a87_key -iv $encrypted_329bc7822a87_iv
+  -in deploy_rsa.enc -out /tmp/deploy_rsa -d
+- eval "$(ssh-agent -s)"
+- chmod 600 /tmp/deploy_rsa
+- ssh-add /tmp/deploy_rsa
+- git config --global user.name "Toooooyoung"
+- git config --global user.email "1115230538@qq.com"
+install:
+- gulp generate
+script:
+- "./deploy.sh $REMOTE_URL"
