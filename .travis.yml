@@ -1,0 +1,19 @@
+language: shell
+addons:
+  ssh_known_hosts: $HOST_ME
+branches:
+  only:
+  - master
+before_install:
+- export TZ='Asia/Shanghai'
+- openssl aes-256-cbc -K $encrypted_329bc7822a87_key -iv $encrypted_329bc7822a87_iv
+  -in deploy_rsa.enc -out ~/.ssh/id_rsa -d
+- chmod 600 ~/.ssh/id_rsa
+- eval $(ssh-agent)
+- ssh-add ~/.ssh/id_rsa
+- cp ssh_config ~/.ssh/config
+before_script:
+- git config --global user.name "Toooooyoung"
+- git config --global user.email "1115230538@qq.com"
+script:
+- "./deploy.sh $SOURCE_DIR $REMOTE_URL"
