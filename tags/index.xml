@@ -6,9 +6,37 @@
     <description>Recent content in Tags on Jianlanz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
+    <lastBuildDate>Sun, 21 Apr 2019 17:01:26 +0800</lastBuildDate>
     
 	<atom:link href="/./tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Merge Sort</title>
+      <link>/./tags/merge-sort/</link>
+      <pubDate>Sun, 21 Apr 2019 17:01:26 +0800</pubDate>
+      
+      <guid>/./tags/merge-sort/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>/./tags/python/</link>
+      <pubDate>Sun, 21 Apr 2019 17:01:26 +0800</pubDate>
+      
+      <guid>/./tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sort</title>
+      <link>/./tags/sort/</link>
+      <pubDate>Sun, 21 Apr 2019 17:01:26 +0800</pubDate>
+      
+      <guid>/./tags/sort/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

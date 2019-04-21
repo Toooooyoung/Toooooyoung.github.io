@@ -19,5 +19,23 @@
       <description></description>
     </item>
     
+    <item>
+      <title>Lintcode</title>
+      <link>/./categories/lintcode/</link>
+      <pubDate>Sun, 21 Apr 2019 17:01:26 +0800</pubDate>
+      
+      <guid>/./categories/lintcode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sort</title>
+      <link>/./categories/sort/</link>
+      <pubDate>Sun, 21 Apr 2019 17:01:26 +0800</pubDate>
+      
+      <guid>/./categories/sort/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

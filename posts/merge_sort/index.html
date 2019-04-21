@@ -6,7 +6,7 @@
   
   <meta charset="UTF-8">
   <title>
-    Archive | Jianlanz
+    归并排序的递归与非递归实现 | Jianlanz
   </title>
 
 
@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="/./archive/" />
+  <link rel="canonical" href="/./posts/merge_sort/" />
 
   
   
@@ -61,7 +61,7 @@
             </li>
             
             <li class="tab">
-              <a href="/./archive/" class=' active '>
+              <a href="/./archive/" class=''>
                 Archive
               </a>
             </li>
@@ -210,7 +210,7 @@
     </li>
     
     <li>
-      <a href="/./archive/" class=' active '>
+      <a href="/./archive/" class=''>
         Archive
       </a>
     </li>
@@ -250,11 +250,37 @@
     </li>
   </ul>
   
-<main id="archive" role="main" class="main-panel">
-  <section class="container container-ex">
-    <div class="inner">
-        <div class="no-toc">
-      <section class="breadcrumb-root">
+
+
+
+
+
+
+<main id="single" role="main" class="main-panel">
+  <div class="page-content">
+    <div class="container container-ex">
+      <div class="inner">
+        <section class="post-wrapper">
+          
+          <div class="toc-panel">
+            <nav id="TableOfContents">
+<ul>
+<li><a href="#要点">要点</a>
+<ul>
+<li><a href="#复杂度">复杂度</a></li>
+</ul></li>
+<li><a href="#解法">解法</a>
+<ul>
+<li><a href="#递归">递归</a></li>
+<li><a href="#非递归">非递归</a></li>
+</ul></li>
+</ul>
+</nav>
+          </div>
+          
+          <div class="post reveal ">
+            <div class="card">
+              <section class="breadcrumb-root">
   <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
      
 
@@ -265,40 +291,231 @@
         
     
       
-    <span class="breadcrumb">Archive</span>
+    
+        
+    
+      
+    <span class="breadcrumb">归并排序的递归与非递归实现</span>
 
         
     
       
   </div>
 </section>
-        <ul class="collapsible popout reveal" data-collapsible="accordion">
-           
-          <li>
-            <div class="collapsible-header">
-              <i class="material-icons">history</i>
-              <span>04 - 2019</span>
-            </div>
-            <div class="collapsible-body">
-              <div class="collection">
+              
+              <div class="card-header postinfo">
+                <span class="card-title">归并排序的递归与非递归实现 </span>
+              </div>
+              <div class="card-header date">
                 
-                <a href="/./posts/merge_sort/" class="collection-item">
-                  归并排序的递归与非递归实现
-                </a>
+                <div class="group">
+                  <i class="material-icons">book</i>
+                  <address>
+                    归档：
+                    <a href="/./categories/lintcode">lintcode</a>&nbsp; 
+                    <a href="/./categories/sort">sort</a>&nbsp; 
+                  </address>
+                </div>
                 
-                <a href="/./posts/hugo_usage/" class="collection-item">
-                  Hugo Usage
-                </a>
+                <div class="group">
+                  <i class="material-icons">flag</i>
+                  <time>创建：2019年04月21日
+                  </time>
+                </div>
+                
+                <div class="group">
+                  <i class="material-icons">mode_edit</i>
+                  <time>修改：2019年04月21日
+                  </time>
+                </div>
+                
+                
+
+              </div>
+              
+              <div class="card-content">
+
+                <article class="article">
+                  
+
+<pre><code>id         : 464
+url        : https://www.lintcode.com/problem/sort-integers-ii/description
+title      : Merge Sort
+difficulty : Medium
+topic      : sort
+</code></pre>
+
+<h1 id="要点">要点</h1>
+
+<h2 id="复杂度">复杂度</h2>
+
+<table>
+    <tr>
+        <th colspan="3">时间复杂度</th>
+        <th rowspan="2">空间复杂度</th>
+        <th rowspan="2">稳  定  性</th>
+    </tr>
+    <tr>
+        <th>平均情况</th>
+        <th>最好情况</th>
+        <th>最坏情况</th>
+    </tr>
+    <tr>
+        <td>O(nlog2n)</td>
+        <td>O(nlog2n)</td>
+        <td>O(nlog2n)</td>
+        <td>O(n)</td>
+        <td>稳定</td>
+    </tr>
+</table>
+
+<h1 id="解法">解法</h1>
+
+<h2 id="递归">递归</h2>
+
+<pre><code class="language-python">class Solution:
+    &quot;&quot;&quot;
+    @param A: an integer array
+    @return: nothing
+    &quot;&quot;&quot;
+
+    def sortIntegers2(self, A):
+        if not A or len(A) == 1:
+            return A
+
+        self.mergeSort(A, 0, len(A) - 1)
+        return A
+
+    def mergeSort(self, A, low, high):
+        if low &gt;= high:
+            return
+
+        mid = low + (high - low) // 2
+        self.mergeSort(A, low, mid)
+        self.mergeSort(A, mid+1, high)
+        self.mergeArray(A, low, mid, high)
+
+    def mergeArray(self, A, low, mid, high):
+        tmpArrary = A[low:high+1]
+        i, j, k = 0, mid-low+1, low
+        while i &lt;= mid-low and j &lt;= high-low:
+            if tmpArrary[i] &lt;= tmpArrary[j]:
+                A[k] = tmpArrary[i]
+                i += 1
+            else:
+                A[k] = tmpArrary[j]
+                j += 1
+            k += 1
+        if i &gt; mid-low+1:
+            while j &lt;= high-low:
+                A[k] = tmpArrary[j]
+                j += 1
+                k += 1
+        if j &gt; high-low:
+            while i &lt;= mid - low:
+                A[k] = tmpArrary[i]
+                i += 1
+                k += 1
+</code></pre>
+
+<h2 id="非递归">非递归</h2>
+
+<pre><code class="language-python">class Solution:
+    &quot;&quot;&quot;
+    @param A: an integer array
+    @return: nothing
+    &quot;&quot;&quot;
+
+    def sortIntegers2(self, A):
+        if not A or len(A) == 1:
+            return A
+
+        self.mergeSort(A, 0, len(A) - 1)
+
+    def mergeSort(self, A, low, high):
+        stack = [(low, high)]
+        while stack:
+            group = stack.pop()
+            if len(group) == 3:
+                self.mergeArray(A, *group)
+            else:
+                low, high = group
+                if low &lt; high:
+                    mid = low + (high - low) // 2
+                    stack.append((low, mid, high))
+                    stack.append((low, mid))
+                    stack.append((mid+1, high))
+
+    def mergeArray(self, A, low, mid, high):
+        tmpArrary = A[low:high+1]
+        i, j, k = 0, mid-low+1, low
+        while i &lt;= mid-low and j &lt;= high-low:
+            if tmpArrary[i] &lt;= tmpArrary[j]:
+                A[k] = tmpArrary[i]
+                i += 1
+            else:
+                A[k] = tmpArrary[j]
+                j += 1
+            k += 1
+        if i &gt; mid-low+1:
+            while j &lt;= high-low:
+                A[k] = tmpArrary[j]
+                j += 1
+                k += 1
+        if j &gt; high-low:
+            while i &lt;= mid - low:
+                A[k] = tmpArrary[i]
+                i += 1
+                k += 1
+</code></pre>
+
+                </article>
+
+              </div>
+              
+              <div class="card-action card-action-links">
+                
+                <a class="btn btn-secondary" href="/./tags/sort">sort</a> 
+                <a class="btn btn-secondary" href="/./tags/python">python</a> 
+                <a class="btn btn-secondary" href="/./tags/merge-sort">merge sort</a> 
+              </div>
+              
+              <div class="card-action">
+                  
+<div id="comment"></div>
+<style>
+  .v .vwrap .vheader .vinput:focus {
+    border-bottom-color: #607d8b;
+  }
+</style>
+<script>
+  window.VALINECONFIG = {
+    el: '#comment',
+    notify: false,
+    verify: false,
+    appId: '',
+    appKey: '',
+    placeholder: '写点什么吧...',
+    path: window.location.pathname,
+    avatar: 'retro'
+  }
+</script>  
+              </div>
+
+              
+              <div class="pagination-single">
+                
+                
                 
               </div>
+              
+
             </div>
-          </li>
-          
-        </ul>
+          </div>
+        </section>
       </div>
-      <div class="pagination"></div>
     </div>
-  </section>
+  </div>
   <footer class="page-footer">
   <div class="container">
     <div class="inner">
@@ -328,6 +545,7 @@
   </div>
 </footer>
 </main>
+
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script type="text/javascript" src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
