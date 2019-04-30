@@ -19,7 +19,7 @@ var es6Promise = createCommonjsModule(function (module, exports) {
  * @copyright Copyright (c) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors (Conversion to ES6 API by Jake Archibald)
  * @license   Licensed under MIT license
  *            See https://raw.githubusercontent.com/stefanpenner/es6-promise/master/LICENSE
- * @version   v4.2.6+9869a4bc
+ * @version   v4.2.2+97478eb6
  */
 
 (function (global, factory) {
@@ -148,7 +148,8 @@ function flush() {
 
 function attemptVertx() {
   try {
-    var vertx = Function('return this')().require('vertx');
+    var r = commonjsRequire;
+    var vertx = r('vertx');
     vertxNext = vertx.runOnLoop || vertx.runOnContext;
     return useVertxTimer();
   } catch (e) {
@@ -238,7 +239,7 @@ function resolve$1(object) {
   return promise;
 }
 
-var PROMISE_ID = Math.random().toString(36).substring(2);
+var PROMISE_ID = Math.random().toString(36).substring(16);
 
 function noop() {}
 
@@ -246,7 +247,7 @@ var PENDING = void 0;
 var FULFILLED = 1;
 var REJECTED = 2;
 
-var TRY_CATCH_ERROR = { error: null };
+var GET_THEN_ERROR = new ErrorObject();
 
 function selfFulfillment() {
   return new TypeError("You cannot resolve a promise with itself");
@@ -260,8 +261,8 @@ function getThen(promise) {
   try {
     return promise.then;
   } catch (error) {
-    TRY_CATCH_ERROR.error = error;
-    return TRY_CATCH_ERROR;
+    GET_THEN_ERROR.error = error;
+    return GET_THEN_ERROR;
   }
 }
 
@@ -320,9 +321,9 @@ function handleMaybeThenable(promise, maybeThenable, then$$1) {
   if (maybeThenable.constructor === promise.constructor && then$$1 === then && maybeThenable.constructor.resolve === resolve$1) {
     handleOwnThenable(promise, maybeThenable);
   } else {
-    if (then$$1 === TRY_CATCH_ERROR) {
-      reject(promise, TRY_CATCH_ERROR.error);
-      TRY_CATCH_ERROR.error = null;
+    if (then$$1 === GET_THEN_ERROR) {
+      reject(promise, GET_THEN_ERROR.error);
+      GET_THEN_ERROR.error = null;
     } else if (then$$1 === undefined) {
       fulfill(promise, maybeThenable);
     } else if (isFunction(then$$1)) {
@@ -416,6 +417,12 @@ function publish(promise) {
   promise._subscribers.length = 0;
 }
 
+function ErrorObject() {
+  this.error = null;
+}
+
+var TRY_CATCH_ERROR = new ErrorObject();
+
 function tryCatch(callback, detail) {
   try {
     return callback(detail);
@@ -487,6 +494,10 @@ function makePromise(promise) {
   promise._state = undefined;
   promise._result = undefined;
   promise._subscribers = [];
+}
+
+function validationError() {
+  return new Error('Array Methods must be provided an Array');
 }
 
 function validationError() {
@@ -1121,19 +1132,15 @@ var Promise$1 = function () {
     var promise = this;
     var constructor = promise.constructor;
 
-    if (isFunction(callback)) {
-      return promise.then(function (value) {
-        return constructor.resolve(callback()).then(function () {
-          return value;
-        });
-      }, function (reason) {
-        return constructor.resolve(callback()).then(function () {
-          throw reason;
-        });
+    return promise.then(function (value) {
+      return constructor.resolve(callback()).then(function () {
+        return value;
       });
-    }
-
-    return promise.then(callback, callback);
+    }, function (reason) {
+      return constructor.resolve(callback()).then(function () {
+        throw reason;
+      });
+    });
   };
 
   return Promise;
@@ -1150,36 +1157,36 @@ Promise$1._asap = asap;
 
 /*global self*/
 function polyfill() {
-  var local = void 0;
+    var local = void 0;
 
-  if (typeof commonjsGlobal !== 'undefined') {
-    local = commonjsGlobal;
-  } else if (typeof self !== 'undefined') {
-    local = self;
-  } else {
-    try {
-      local = Function('return this')();
-    } catch (e) {
-      throw new Error('polyfill failed because global object is unavailable in this environment');
-    }
-  }
-
-  var P = local.Promise;
-
-  if (P) {
-    var promiseToString = null;
-    try {
-      promiseToString = Object.prototype.toString.call(P.resolve());
-    } catch (e) {
-      // silently ignored
+    if (typeof commonjsGlobal !== 'undefined') {
+        local = commonjsGlobal;
+    } else if (typeof self !== 'undefined') {
+        local = self;
+    } else {
+        try {
+            local = Function('return this')();
+        } catch (e) {
+            throw new Error('polyfill failed because global object is unavailable in this environment');
+        }
     }
 
-    if (promiseToString === '[object Promise]' && !P.cast) {
-      return;
-    }
-  }
+    var P = local.Promise;
 
-  local.Promise = Promise$1;
+    if (P) {
+        var promiseToString = null;
+        try {
+            promiseToString = Object.prototype.toString.call(P.resolve());
+        } catch (e) {
+            // silently ignored
+        }
+
+        if (promiseToString === '[object Promise]' && !P.cast) {
+            return;
+        }
+    }
+
+    local.Promise = Promise$1;
 }
 
 // Strange compat..
@@ -1555,10 +1562,7 @@ var auto = es6Promise.polyfill();
 
   function parseHeaders(rawHeaders) {
     var headers = new Headers();
-    // Replace instances of \r\n and \n followed by at least one space or horizontal tab with a space
-    // https://tools.ietf.org/html/rfc7230#section-3.2
-    var preProcessedHeaders = rawHeaders.replace(/\r?\n[\t ]+/g, ' ');
-    preProcessedHeaders.split(/\r?\n/).forEach(function(line) {
+    rawHeaders.split(/\r?\n/).forEach(function(line) {
       var parts = line.split(':');
       var key = parts.shift().trim();
       if (key) {
@@ -1577,7 +1581,7 @@ var auto = es6Promise.polyfill();
     }
 
     this.type = 'default';
-    this.status = options.status === undefined ? 200 : options.status;
+    this.status = 'status' in options ? options.status : 200;
     this.ok = this.status >= 200 && this.status < 300;
     this.statusText = 'statusText' in options ? options.statusText : 'OK';
     this.headers = new Headers(options.headers);
@@ -1644,8 +1648,6 @@ var auto = es6Promise.polyfill();
 
       if (request.credentials === 'include') {
         xhr.withCredentials = true;
-      } else if (request.credentials === 'omit') {
-        xhr.withCredentials = false;
       }
 
       if ('responseType' in xhr && support.blob) {
