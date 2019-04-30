@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Jianlanz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Sun, 21 Apr 2019 17:01:26 +0800</lastBuildDate>
+    <lastBuildDate>Tue, 30 Apr 2019 15:59:13 +0800</lastBuildDate>
     
 	<atom:link href="/./posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>持久化与序列化的区别与联系</title>
+      <link>/./posts/persistence_and_serialization/</link>
+      <pubDate>Tue, 30 Apr 2019 15:59:13 +0800</pubDate>
+      
+      <guid>/./posts/persistence_and_serialization/</guid>
+      <description>&lt;p&gt;持久化和序列化都是对象服务, 持久化是解决如何长时间保存数据的问题，序列化是解决对象传输的问题&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>归并排序的递归与非递归实现</title>
