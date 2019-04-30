@@ -13,11 +13,13 @@
     
     <item>
       <title>归并排序的递归与非递归实现</title>
-      <link>/./posts/merge_sort/</link>
+      <link>/./lintcode/merge_sort/</link>
       <pubDate>Sun, 21 Apr 2019 17:01:26 +0800</pubDate>
       
-      <guid>/./posts/merge_sort/</guid>
-      <description>id : 464 url : https://www.lintcode.com/problem/sort-integers-ii/description title : Merge Sort difficulty : Medium topic : sort 要点 复杂度 时间复杂度 空间复杂度 稳 定 性 平均情况 最好情况 最坏情况 O(nlog2n) O(nlog2n) O(nlog2n) O(n) 稳定 解法 递归 class Solution: &amp;quot;&amp;quot;&amp;quot; @param A: an integer array @return: nothing &amp;quot;&amp;quot;&amp;quot; def sortIntegers2(self, A):</description>
+      <guid>/./lintcode/merge_sort/</guid>
+      <description>&lt;h1 id=&#34;sort-integers-ii-https-www-lintcode-com-problem-sort-integers-ii-description&#34;&gt;&lt;a href=&#34;https://www.lintcode.com/problem/sort-integers-ii/description&#34;&gt;Sort Integers ii&lt;/a&gt;&lt;/h1&gt;
+
+&lt;h2 id=&#34;要点&#34;&gt;要点&lt;/h2&gt;</description>
     </item>
     
   </channel>

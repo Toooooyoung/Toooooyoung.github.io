@@ -12,29 +12,20 @@
     
     
     <item>
+      <title>Medium</title>
+      <link>/./tags/medium/</link>
+      <pubDate>Sun, 21 Apr 2019 17:01:26 +0800</pubDate>
+      
+      <guid>/./tags/medium/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Merge Sort</title>
       <link>/./tags/merge-sort/</link>
       <pubDate>Sun, 21 Apr 2019 17:01:26 +0800</pubDate>
       
       <guid>/./tags/merge-sort/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Python</title>
-      <link>/./tags/python/</link>
-      <pubDate>Sun, 21 Apr 2019 17:01:26 +0800</pubDate>
-      
-      <guid>/./tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Sort</title>
-      <link>/./tags/sort/</link>
-      <pubDate>Sun, 21 Apr 2019 17:01:26 +0800</pubDate>
-      
-      <guid>/./tags/sort/</guid>
       <description></description>
     </item>
     

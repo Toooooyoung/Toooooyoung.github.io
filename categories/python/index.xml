@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Merge Sort on Jianlanz</title>
-    <link>/./tags/merge-sort/</link>
-    <description>Recent content in Merge Sort on Jianlanz</description>
+    <title>Python on Jianlanz</title>
+    <link>/./categories/python/</link>
+    <description>Recent content in Python on Jianlanz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
     <lastBuildDate>Sun, 21 Apr 2019 17:01:26 +0800</lastBuildDate>
     
-	<atom:link href="/./tags/merge-sort/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/./categories/python/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>

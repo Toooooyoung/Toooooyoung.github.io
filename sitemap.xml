@@ -4,14 +4,14 @@
   
   <url>
     <loc>/./posts/persistence_and_serialization/</loc>
-    <lastmod>2019-04-30T16:16:20+08:00</lastmod>
+    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>/./posts/merge_sort/</loc>
-    <lastmod>2019-04-21T17:38:36+08:00</lastmod>
+    <loc>/./lintcode/merge_sort/</loc>
+    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -25,7 +25,7 @@
   
   <url>
     <loc>/./posts/hugo_usage/</loc>
-    <lastmod>2019-04-30T15:56:37+08:00</lastmod>
+    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -45,63 +45,70 @@
   
   <url>
     <loc>/./categories/hugo/</loc>
-    <lastmod>2019-04-30T15:56:37+08:00</lastmod>
+    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./</loc>
-    <lastmod>2019-04-30T16:16:20+08:00</lastmod>
+    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./categories/lintcode/</loc>
-    <lastmod>2019-04-21T17:38:36+08:00</lastmod>
+    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/./lintcode/</loc>
+    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/./tags/medium/</loc>
+    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./tags/merge-sort/</loc>
-    <lastmod>2019-04-21T17:38:36+08:00</lastmod>
+    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./posts/</loc>
-    <lastmod>2019-04-30T16:16:20+08:00</lastmod>
+    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/./tags/python/</loc>
-    <lastmod>2019-04-21T17:38:36+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/./tags/sort/</loc>
-    <lastmod>2019-04-21T17:38:36+08:00</lastmod>
+    <loc>/./categories/python/</loc>
+    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./categories/sort/</loc>
-    <lastmod>2019-04-21T17:38:36+08:00</lastmod>
+    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./tags/</loc>
-    <lastmod>2019-04-21T17:38:36+08:00</lastmod>
+    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>

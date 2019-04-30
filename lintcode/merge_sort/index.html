@@ -2,12 +2,11 @@
 <html lang="zh-cn">
 
 <head>
-	<meta name="generator" content="Hugo 0.54.0" />
 
   
   <meta charset="UTF-8">
   <title>
-    Jianlanz
+    归并排序的递归与非递归实现 | Jianlanz
   </title>
 
 
@@ -15,7 +14,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="/./" />
+  <link rel="canonical" href="/./lintcode/merge_sort/" />
 
   
   
@@ -56,7 +55,7 @@
           <ul class=" nav-menu tabs tabs-transparent hide-on-med-and-down">
             
             <li class="tab">
-              <a href="/./" class=' active '>
+              <a href="/./" class=''>
                 Home
               </a>
             </li>
@@ -205,7 +204,7 @@
   <ul class="side-nav" id="sidebar">
     
     <li>
-      <a href="/./" class=' active '>
+      <a href="/./" class=''>
         Home
       </a>
     </li>
@@ -252,149 +251,271 @@
   </ul>
   
 
-<section class="splash">
-  <div class="splash-bg" style="background-image:url('/img/bg.jpg')">
-    <canvas id="canvas"></canvas>
-  </div>
-  <div class="splash-content container">
+
+
+
+
+
+<main id="single" role="main" class="main-panel">
+  <div class="page-content">
+    <div class="container container-ex">
+      <div class="inner">
+        <section class="post-wrapper">
+          
+          <div class="toc-panel">
+            <nav id="TableOfContents">
+<ul>
+<li><a href="#sort-integers-ii-https-www-lintcode-com-problem-sort-integers-ii-description"><a href="https://www.lintcode.com/problem/sort-integers-ii/description">Sort Integers ii</a></a>
+<ul>
+<li><a href="#要点">要点</a>
+<ul>
+<li><a href="#复杂度">复杂度</a></li>
+</ul></li>
+<li><a href="#解法">解法</a>
+<ul>
+<li><a href="#递归">递归</a></li>
+<li><a href="#非递归">非递归</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+          </div>
+          
+          <div class="post reveal ">
+            <div class="card">
+              <section class="breadcrumb-root">
+  <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
+     
+
+    <a class="breadcrumb" href="/.">
+      <i class="material-icons">location_on</i>Home</a>
+      
     
-    <img class="avatar reveal" src="/./img/avatar.jpg" />  
-    <h3 class="nickname">Jianlan Zhou</h3>
-    <p class="desc"></p>
+        
+    
+      
+    <a class="breadcrumb" href='/./lintcode/'>Lintcode</a>
+        
+    
+      
+    <span class="breadcrumb">归并排序的递归与非递归实现</span>
+
+        
+    
+      
   </div>
 </section>
-
-<script>window["getHitokoto"] = true;</script> 
-<script type="text/javascript" src="/./js/canvas.js"></script>
-
-<main id="index" role="main" class="main-panel">
-  <div class="container container-ex">
-  <div class="inner">
-    
-    <div class="waterfall">
-       
-      <div class="waterfall__item">
-        <div class="card post post-summary reveal">
-          <div class="card-header postinfo">
-            <span class="card-title">
-              <a href="/./posts/persistence_and_serialization/">持久化与序列化的区别与联系 </a>
-            </span>
-            <div class="card-meta">
-              <time>2019年04月30日</time>
               
+              <div class="card-header postinfo">
+                <span class="card-title">归并排序的递归与非递归实现 </span>
+              </div>
+              <div class="card-header date">
+                
+                <div class="group">
+                  <i class="material-icons">book</i>
+                  <address>
+                    归档：
+                    <a href="/./categories/lintcode">lintcode</a>&nbsp; 
+                    <a href="/./categories/sort">sort</a>&nbsp; 
+                    <a href="/./categories/python">python</a>&nbsp; 
+                  </address>
+                </div>
+                
+                <div class="group">
+                  <i class="material-icons">flag</i>
+                  <time>创建：2019年04月21日
+                  </time>
+                </div>
+                
+                <div class="group">
+                  <i class="material-icons">mode_edit</i>
+                  <time>修改：2019年04月30日
+                  </time>
+                </div>
+                
+                
+
+              </div>
+              
+              <div class="card-content">
+
+                <article class="article">
+                  <h1 id="sort-integers-ii-https-www-lintcode-com-problem-sort-integers-ii-description"><a href="https://www.lintcode.com/problem/sort-integers-ii/description">Sort Integers ii</a></h1>
+
+<h2 id="要点">要点</h2>
+
+<h3 id="复杂度">复杂度</h3>
+
+<table>
+    <tr>
+        <th colspan="3">时间复杂度</th>
+        <th rowspan="2">空间复杂度</th>
+        <th rowspan="2">稳  定  性</th>
+    </tr>
+    <tr>
+        <th>平均情况</th>
+        <th>最好情况</th>
+        <th>最坏情况</th>
+    </tr>
+    <tr>
+        <td>O(nlog2n)</td>
+        <td>O(nlog2n)</td>
+        <td>O(nlog2n)</td>
+        <td>O(n)</td>
+        <td>稳定</td>
+    </tr>
+</table>
+
+<h2 id="解法">解法</h2>
+
+<h3 id="递归">递归</h3>
+
+<pre><code class="language-python">class Solution:
+    &quot;&quot;&quot;
+    @param A: an integer array
+    @return: nothing
+    &quot;&quot;&quot;
+
+    def sortIntegers2(self, A):
+        if not A or len(A) == 1:
+            return A
+
+        self.mergeSort(A, 0, len(A) - 1)
+        return A
+
+    def mergeSort(self, A, low, high):
+        if low &gt;= high:
+            return
+
+        mid = low + (high - low) // 2
+        self.mergeSort(A, low, mid)
+        self.mergeSort(A, mid+1, high)
+        self.mergeArray(A, low, mid, high)
+
+    def mergeArray(self, A, low, mid, high):
+        tmpArrary = A[low:high+1]
+        i, j, k = 0, mid-low+1, low
+        while i &lt;= mid-low and j &lt;= high-low:
+            if tmpArrary[i] &lt;= tmpArrary[j]:
+                A[k] = tmpArrary[i]
+                i += 1
+            else:
+                A[k] = tmpArrary[j]
+                j += 1
+            k += 1
+        if i &gt; mid-low+1:
+            while j &lt;= high-low:
+                A[k] = tmpArrary[j]
+                j += 1
+                k += 1
+        if j &gt; high-low:
+            while i &lt;= mid - low:
+                A[k] = tmpArrary[i]
+                i += 1
+                k += 1
+</code></pre>
+
+<h3 id="非递归">非递归</h3>
+
+<pre><code class="language-python">class Solution:
+    &quot;&quot;&quot;
+    @param A: an integer array
+    @return: nothing
+    &quot;&quot;&quot;
+
+    def sortIntegers2(self, A):
+        if not A or len(A) == 1:
+            return A
+
+        self.mergeSort(A, 0, len(A) - 1)
+
+    def mergeSort(self, A, low, high):
+        stack = [(low, high)]
+        while stack:
+            group = stack.pop()
+            if len(group) == 3:
+                self.mergeArray(A, *group)
+            else:
+                low, high = group
+                if low &lt; high:
+                    mid = low + (high - low) // 2
+                    stack.append((low, mid, high))
+                    stack.append((low, mid))
+                    stack.append((mid+1, high))
+
+    def mergeArray(self, A, low, mid, high):
+        tmpArrary = A[low:high+1]
+        i, j, k = 0, mid-low+1, low
+        while i &lt;= mid-low and j &lt;= high-low:
+            if tmpArrary[i] &lt;= tmpArrary[j]:
+                A[k] = tmpArrary[i]
+                i += 1
+            else:
+                A[k] = tmpArrary[j]
+                j += 1
+            k += 1
+        if i &gt; mid-low+1:
+            while j &lt;= high-low:
+                A[k] = tmpArrary[j]
+                j += 1
+                k += 1
+        if j &gt; high-low:
+            while i &lt;= mid - low:
+                A[k] = tmpArrary[i]
+                i += 1
+                k += 1
+</code></pre>
+                </article>
+
+              </div>
+              
+              <div class="card-action card-action-links">
+                
+                <a class="btn btn-secondary" href="/./tags/merge-sort">merge sort</a> 
+                <a class="btn btn-secondary" href="/./tags/medium">medium</a> 
+              </div>
+              
+              <div class="card-action">
+                  
+<div id="comment"></div>
+<style>
+  .v .vwrap .vheader .vinput:focus {
+    border-bottom-color: #607d8b;
+  }
+</style>
+<script>
+  window.VALINECONFIG = {
+    el: '#comment',
+    notify: false,
+    verify: false,
+    appId: '',
+    appKey: '',
+    placeholder: '写点什么吧...',
+    path: window.location.pathname,
+    avatar: 'retro'
+  }
+</script>  
+              </div>
+
+              
+              <div class="pagination-single">
+                 
+                <span class="pagination-item previous">
+                  <i class="material-icons">navigate_before</i>
+                  <a href="/./posts/persistence_and_serialization/" rel="prev">持久化与序列化的区别与联系</a>
+                </span> 
+                
+                
+              </div>
+              
+
             </div>
           </div>
-
-          <div class="card-content">
-            <article class="article">
-              <p>持久化和序列化都是对象服务, 持久化是解决如何长时间保存数据的问题，序列化是解决对象传输的问题。对象的持久化前提是对象的序列化。</p> 
-              <a href="/./posts/persistence_and_serialization/" class="readmore">阅读全文</a>
-              
-            </article>
-
-          </div>
-
-          
-        </div>
-      </div>
-      
-      <div class="waterfall__item">
-        <div class="card post post-summary reveal">
-          <div class="card-header postinfo">
-            <span class="card-title">
-              <a href="/./lintcode/merge_sort/">归并排序的递归与非递归实现 </a>
-            </span>
-            <div class="card-meta">
-              <time>2019年04月21日</time>
-              
-              <address>
-                
-                <a href='/./categories/lintcode'>lintcode</a>
-                
-                <a href='/./categories/sort'>sort</a>
-                
-                <a href='/./categories/python'>python</a>
-                
-              </address>
-              
-            </div>
-          </div>
-
-          <div class="card-content">
-            <article class="article">
-              <h1 id="sort-integers-ii-https-www-lintcode-com-problem-sort-integers-ii-description"><a href="https://www.lintcode.com/problem/sort-integers-ii/description">Sort Integers ii</a></h1>
-
-<h2 id="要点">要点</h2> 
-              <a href="/./lintcode/merge_sort/" class="readmore">阅读全文</a>
-              
-            </article>
-
-          </div>
-
-          
-          <div class="card-action card-action-links">
-            <a class="btn btn-secondary" href='/./tags/merge-sort'>merge sort</a>
-            <a class="btn btn-secondary" href='/./tags/medium'>medium</a>
-          </div>
-          
-        </div>
-      </div>
-      
-      <div class="waterfall__item">
-        <div class="card post post-summary reveal">
-          <div class="card-header postinfo">
-            <span class="card-title">
-              <a href="/./posts/hugo_usage/">Hugo Usage </a>
-            </span>
-            <div class="card-meta">
-              <time>2019年04月05日</time>
-              
-              <address>
-                
-                <a href='/./categories/hugo'>hugo</a>
-                
-              </address>
-              
-            </div>
-          </div>
-
-          <div class="card-content">
-            <article class="article">
-              <h1 id="grammar">Grammar</h1>
-
-<ol>
-<li><p>warning</p>
-
- 
-
-<div class="admonition warning">
-  <p class="admonition-title">
-    <i class="material-icons">
-       warning 
-    </i>注意
-  </p>
-  <p>This is a warning</p>
-</div></li>
-</ol> 
-              <a href="/./posts/hugo_usage/" class="readmore">阅读全文</a>
-              
-            </article>
-
-          </div>
-
-          
-        </div>
-      </div>
-      
-    </div>
-    <div class="center">
-      <div class="pagination">
-         
-
+        </section>
       </div>
     </div>
   </div>
-</div> <footer class="page-footer">
+  <footer class="page-footer">
   <div class="container">
     <div class="inner">
       <div class="wrapper">
