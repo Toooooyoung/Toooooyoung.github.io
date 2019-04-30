@@ -9,7 +9,7 @@ git log -1
 cp -r ${root}/.tmp/* ${root}
 if [ "$(git status -s)" != "" ]; then
     git add .
-    git commit -m "$(date)"
+    git commit -m "$(date -u +'%Y-%m-%d %H:%M:%S%z')"
     git push origin master:master
 fi
 git checkout write
