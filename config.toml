@@ -5,9 +5,6 @@ metaDataFormat = "yaml"
 
 theme = "canoe"
 
-# use typora to editor new posts
-newContentEditor = "typora"
-
 # last mod time support
 enableGitInfo = true
 enableEmoji = true

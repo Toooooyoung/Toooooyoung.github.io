@@ -10,6 +10,7 @@
     <span class="breadcrumb">{{ $.Title }}</span>
 
     {{ else if eq $element "posts" }}
+    <a class="breadcrumb" href='{{ $.Scratch.Get "path" }}'>Posts</a>
     <!-- <span class="breadcrumb">Posts</span> -->
     {{ else }}
     <a class="breadcrumb" href='{{ $.Scratch.Get "path" }}'>{{ title ( replace . "-" " ") }}</a>

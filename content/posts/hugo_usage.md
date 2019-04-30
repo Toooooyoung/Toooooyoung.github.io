@@ -40,3 +40,9 @@ This is a warning
 - `gulp serve` : liveload server
 - `gulp build`: generate public files to /docs
 - `gulp lunr`: generate index file for search
+
+
+# Template Grammer Links
+
+1. http://www.g-var.com/posts/translation/hugo/hugo-22-hugo-template-functions/
+2.

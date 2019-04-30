@@ -5,6 +5,7 @@ tags:
     -
 categories:
     - leetcode
+type: posts
 ---
 
 ```
@@ -14,6 +15,7 @@ title      : {{ replace .TranslationBaseName "-" " " | title }}
 difficulty : Easy
 topic      :
 ```
+
 
 # 要点
 
