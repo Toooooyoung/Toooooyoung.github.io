@@ -2,25 +2,20 @@
 title: "归并排序的递归与非递归实现"
 date: 2019-04-21T17:01:26+08:00
 tags:
-    - sort
-    - python
     - merge sort
+    - medium
 categories:
     - lintcode
     - sort
+    - python
+type: posts
 ---
 
+# [Sort Integers ii](https://www.lintcode.com/problem/sort-integers-ii/description)
 
-```
-id         : 464
-url        : https://www.lintcode.com/problem/sort-integers-ii/description
-title      : Merge Sort
-difficulty : Medium
-topic      : sort
-```
-
-# 要点
-## 复杂度
+## 要点
+<!--more-->
+### 复杂度
 
 <table>
     <tr>
@@ -42,8 +37,8 @@ topic      : sort
     </tr>
 </table>
 
-# 解法
-## 递归
+## 解法
+### 递归
 ```python
 class Solution:
     """
@@ -90,7 +85,7 @@ class Solution:
                 k += 1
 ```
 
-## 非递归
+### 非递归
 ```python
 class Solution:
     """

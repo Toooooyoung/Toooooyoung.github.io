@@ -7,7 +7,8 @@ categories:
 ---
 
 
-# Grammar Usage
+# Grammar
+
 1. warning
 
     {{<admonition type="warning">}}
@@ -16,7 +17,7 @@ This is a warning
 
     {{</admonition>}}
 
-
+<!--more-->
 2. 折叠/Read More
 
     <!--more-->
@@ -45,4 +46,3 @@ This is a warning
 # Template Grammer Links
 
 1. http://www.g-var.com/posts/translation/hugo/hugo-22-hugo-template-functions/
-2.

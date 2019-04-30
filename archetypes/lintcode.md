@@ -4,7 +4,7 @@ date: {{ .Date }}
 tags:
     -
 categories:
-    - leetcode
+    - lintcode
 type: posts
 ---
 
