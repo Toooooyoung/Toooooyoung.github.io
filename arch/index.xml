@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arches on Jianlanz</title>
+    <link>/./arch/</link>
+    <description>Recent content in Arches on Jianlanz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 21 Jun 2019 18:50:30 +0800</lastBuildDate>
+    
+	<atom:link href="/./arch/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>新鲜事系统</title>
+      <link>/./arch/newsfeed/</link>
+      <pubDate>Fri, 21 Jun 2019 18:50:30 +0800</pubDate>
+      
+      <guid>/./arch/newsfeed/</guid>
+      <description>&lt;p&gt;新鲜事系统: 主动关注用户，并获取所有关注人发布的状态消息等&lt;br /&gt;
+常用APP：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Facebook&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Twitter&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;instgram&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;微信盆友圈&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;微博&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+    <item>
+      <title>GFS</title>
+      <link>/./arch/gfs/</link>
+      <pubDate>Sat, 25 May 2019 22:29:58 +0800</pubDate>
+      
+      <guid>/./arch/gfs/</guid>
+      <description>Link 中文版论文 解读 Google File System 总结 GFS 阅读笔记 典型分布式系统分析: GFS</description>
+    </item>
+    
+  </channel>
+</rss>

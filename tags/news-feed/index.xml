@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>News Feed on Jianlanz</title>
+    <link>/./tags/news-feed/</link>
+    <description>Recent content in News Feed on Jianlanz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 21 Jun 2019 18:50:30 +0800</lastBuildDate>
+    
+	<atom:link href="/./tags/news-feed/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>新鲜事系统</title>
+      <link>/./arch/newsfeed/</link>
+      <pubDate>Fri, 21 Jun 2019 18:50:30 +0800</pubDate>
+      
+      <guid>/./arch/newsfeed/</guid>
+      <description>&lt;p&gt;新鲜事系统: 主动关注用户，并获取所有关注人发布的状态消息等&lt;br /&gt;
+常用APP：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Facebook&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Twitter&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;instgram&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;微信盆友圈&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;微博&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

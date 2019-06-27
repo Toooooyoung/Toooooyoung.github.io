@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Api on Jianlanz</title>
+    <link>/./categories/api/</link>
+    <description>Recent content in Api on Jianlanz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 27 Jun 2019 04:26:59 +0800</lastBuildDate>
+    
+	<atom:link href="/./categories/api/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>How to Design a Good API</title>
+      <link>/./posts/rpc_vs_rest_vs_graphql/</link>
+      <pubDate>Thu, 27 Jun 2019 04:26:59 +0800</pubDate>
+      
+      <guid>/./posts/rpc_vs_rest_vs_graphql/</guid>
+      <description>当设计一个新的API模式时一般有以下几点需要进行权衡考虑： coupling，耦合性 chattiness/performance(network latency, overload), 网络负载 client complexity, 客户端复杂度 congative complexity, 是否易于理解 caching, 是否能够c</description>
+    </item>
+    
+  </channel>
+</rss>
