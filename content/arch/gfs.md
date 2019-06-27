@@ -3,7 +3,7 @@ title: "GFS"
 date: 2019-05-25T22:29:58+08:00
 tags:
 categories:
-draft: true
+type: posts
 ---
 
 # Link
