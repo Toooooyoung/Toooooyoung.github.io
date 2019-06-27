@@ -6,9 +6,12 @@ set -ex
 cd ~/$source_dir
 docker-compose down
 cd ~
-rm -rf $source_dir
-git clone $remote_url
+# rm -rf $source_dir
+# git clone $remote_url
 cd $source_dir
+git checkout -- .
+git checkout master
+git pull --rebase origin master
 docker-compose up --build -d &
 sleep 3
 exit
