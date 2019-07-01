@@ -3,6 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/./arch/4s/</loc>
+    <lastmod>2019-07-02T01:38:39+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>/./posts/hash/</loc>
     <lastmod>2019-07-01T23:12:01+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -81,7 +88,7 @@
   
   <url>
     <loc>/./arch/</loc>
-    <lastmod>2019-06-23T18:12:25+08:00</lastmod>
+    <lastmod>2019-07-02T01:38:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -109,28 +116,28 @@
   
   <url>
     <loc>/./tags/interview/</loc>
-    <lastmod>2019-06-23T18:12:25+08:00</lastmod>
+    <lastmod>2019-07-02T01:38:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./categories/interview/</loc>
-    <lastmod>2019-06-23T18:12:25+08:00</lastmod>
+    <lastmod>2019-07-02T01:38:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./</loc>
-    <lastmod>2019-07-01T23:12:01+08:00</lastmod>
+    <lastmod>2019-07-02T01:38:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./categories/jiuzhang/</loc>
-    <lastmod>2019-06-23T18:12:25+08:00</lastmod>
+    <lastmod>2019-07-02T01:38:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -193,21 +200,21 @@
   
   <url>
     <loc>/./tags/system-design/</loc>
-    <lastmod>2019-06-23T18:12:25+08:00</lastmod>
+    <lastmod>2019-07-02T01:38:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./categories/system-design/</loc>
-    <lastmod>2019-06-23T18:12:25+08:00</lastmod>
+    <lastmod>2019-07-02T01:38:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./tags/</loc>
-    <lastmod>2019-06-23T18:12:25+08:00</lastmod>
+    <lastmod>2019-07-02T01:38:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
