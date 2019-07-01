@@ -11,7 +11,4 @@ categories:
 type: posts
 ---
 
-[{{ replace .TranslationBaseName "-" " " | title }}]()
----
-
 <!--more-->
