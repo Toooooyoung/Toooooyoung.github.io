@@ -6,7 +6,7 @@
   
   <meta charset="UTF-8">
   <title>
-    Posts | Jianlanz
+    散列表 | Jianlanz
   </title>
 
 
@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="/./posts/" />
+  <link rel="canonical" href="/./posts/hash/" />
 
   
   
@@ -298,11 +298,35 @@
     </li>
   </ul>
   
-<main id="list" role="main" class="main-panel">
-  <div class="container container-ex">
-  <div class="inner">
-    
-    <section class="breadcrumb-root">
+
+
+
+
+
+
+<main id="single" role="main" class="main-panel">
+  <div class="page-content">
+    <div class="container container-ex">
+      <div class="inner">
+        <section class="post-wrapper">
+          
+          <div class="toc-panel">
+            <nav id="TableOfContents">
+<ul>
+<li><a href="#散列函数">散列函数</a></li>
+<li><a href="#散列表对象">散列表对象</a></li>
+<li><a href="#存储键值">存储键值</a>
+<ul>
+<li><a href="#分离链接法-拉链法">分离链接法&ndash;拉链法</a></li>
+<li><a href="#开放定址散列法-线性探测法">开放定址散列法&ndash;线性探测法</a></li>
+</ul></li>
+</ul>
+</nav>
+          </div>
+          
+          <div class="post reveal ">
+            <div class="card">
+              <section class="breadcrumb-root">
   <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
      
 
@@ -313,37 +337,52 @@
         
     
       
-    <span class="breadcrumb">Posts</span>
+    <a class="breadcrumb" href='/./posts/'>Posts</a>
+    
+        
+    
+      
+    <span class="breadcrumb">散列表</span>
 
         
     
       
   </div>
 </section>
-    
-    <div class="waterfall">
-       
-      <div class="waterfall__item">
-        <div class="card post post-summary reveal">
-          <div class="card-header postinfo">
-            <span class="card-title">
-              <a href="/./posts/hash/">散列表 </a>
-            </span>
-            <div class="card-meta">
-              <time>2019年07月01日</time>
               
-              <address>
+              <div class="card-header postinfo">
+                <span class="card-title">散列表 </span>
+              </div>
+              <div class="card-header date">
                 
-                <a href='/./categories/hash'>hash</a>
+                <div class="group">
+                  <i class="material-icons">book</i>
+                  <address>
+                    归档：
+                    <a href="/./categories/hash">hash</a>&nbsp; 
+                  </address>
+                </div>
                 
-              </address>
-              
-            </div>
-          </div>
+                <div class="group">
+                  <i class="material-icons">flag</i>
+                  <time>创建：2019年07月01日
+                  </time>
+                </div>
+                
+                <div class="group">
+                  <i class="material-icons">mode_edit</i>
+                  <time>修改：2019年07月01日
+                  </time>
+                </div>
+                
+                
 
-          <div class="card-content">
-            <article class="article">
-              <p>用算术操作将键转化为数组的索引来访问数组中的键值对</p>
+              </div>
+              
+              <div class="card-content">
+
+                <article class="article">
+                  <p>用算术操作将键转化为数组的索引来访问数组中的键值对</p>
 
 <ul>
 <li>散列函数： 将键转化为数组的一个索引<br /></li>
@@ -360,184 +399,189 @@
 <br /></li>
 </ul></li>
 </ol></li>
-</ul> 
-              <a href="/./posts/hash/" class="readmore">阅读全文</a>
-              
-            </article>
+</ul>
 
-          </div>
+<h1 id="散列函数">散列函数</h1>
 
-          
-        </div>
-      </div>
-      
-      <div class="waterfall__item">
-        <div class="card post post-summary reveal">
-          <div class="card-header postinfo">
-            <span class="card-title">
-              <a href="/./posts/alog_time/">常用排序/查找算法时间复杂度 </a>
-            </span>
-            <div class="card-meta">
-              <time>2019年06月27日</time>
-              
-              <address>
-                
-                <a href='/./categories/sort'>sort</a>
-                
-              </address>
-              
-            </div>
-          </div>
-
-          <div class="card-content">
-            <article class="article">
-              排序 插入排序 排序方法 平均 最坏 最好 空间复杂度 稳定 直接插入排序 N N^2 N 1 T 希尔排序 NlogN NlogN * 1 F 二分查找排序 N N^2 N 1 T 选择排序 排序方法 平均 最坏 最好 空间 
-              <a href="/./posts/alog_time/" class="readmore">阅读全文</a>
-              
-            </article>
-
-          </div>
-
-          
-        </div>
-      </div>
-      
-      <div class="waterfall__item">
-        <div class="card post post-summary reveal">
-          <div class="card-header postinfo">
-            <span class="card-title">
-              <a href="/./posts/rpc_vs_rest_vs_graphql/">How to Design a Good API </a>
-            </span>
-            <div class="card-meta">
-              <time>2019年06月27日</time>
-              
-              <address>
-                
-                <a href='/./categories/api'>API</a>
-                
-              </address>
-              
-            </div>
-          </div>
-
-          <div class="card-content">
-            <article class="article">
-              <h1 id="衡量api好坏的标准-5c-dv">衡量API好坏的标准（5C+DV）：</h1>
+<p>评价散列函数好坏的指标：</p>
 
 <ol>
-<li>Coupling，耦合性<br /></li>
-<li>Chattiness/performance(network latency, overload), 网络负载<br /></li>
-<li>Client complexity, 客户端复杂度<br /></li>
-<li>Congative complexity, 是否易于理解<br /></li>
-<li>Caching, 是否能够cache<br /></li>
-<li>Discoverability, 自发现, 自省(introspect)<br />
+<li>易于计算（高效性）<br /></li>
+<li>均匀分布（均匀性）<br /></li>
+<li>等价的键必然产生相等的散列值（一致性）<br />
+<br /></li>
+</ol>
+
+<p>散列函数跟键的类型有关：</p>
+
+<ol>
+<li>正整数<br />
 
 <ul>
-<li>如果没用过API, 从哪里开始使用<br /></li>
-<li>应该调哪一个API(如多版本情况)<br /></li>
+<li>除留余数法，除数M(即数组的大小)应为素数<br /></li>
 </ul></li>
-<li>Versioning， 版本管理<br />
-<br />
-<br /></li>
-</ol> 
-              <a href="/./posts/rpc_vs_rest_vs_graphql/" class="readmore">阅读全文</a>
-              
-            </article>
+<li>浮点数<br />
 
-          </div>
+<ul>
+<li>将键乘以M并四舍五入得到一个[0, M-1]的索引值（键的高位起的作用更大）<br /></li>
+<li>将键表示为二进制再使用除留余数法<br /></li>
+</ul></li>
 
-          
-        </div>
-      </div>
-      
-      <div class="waterfall__item">
-        <div class="card post post-summary reveal">
-          <div class="card-header postinfo">
-            <span class="card-title">
-              <a href="/./posts/persistence_and_serialization/">持久化与序列化的区别与联系 </a>
-            </span>
-            <div class="card-meta">
-              <time>2019年04月30日</time>
-              
-            </div>
-          </div>
+<li><p>字符串</p>
 
-          <div class="card-content">
-            <article class="article">
-              <ul>
-<li>持久化和序列化都是对象服务<br /></li>
-<li>持久化是解决如何长时间保存数据的问题<br /></li>
-<li>序列化是解决对象传输的问题<br /></li>
-<li>对象的持久化前提是对象的序列化。<br />
-<br />
-<br />
-<br /></li>
-</ul> 
-              <a href="/./posts/persistence_and_serialization/" class="readmore">阅读全文</a>
-              
-            </article>
+<ul>
+<li><p>将字符串作为大整数， 除留余数法</p>
 
-          </div>
+<ul>
+<li><code>charAt()</code> 会返回一个非负16位整数（ASCII值）<br /></li>
 
-          
-        </div>
-      </div>
-      
-      <div class="waterfall__item">
-        <div class="card post post-summary reveal">
-          <div class="card-header postinfo">
-            <span class="card-title">
-              <a href="/./posts/hugo_usage/">Hugo Usage </a>
-            </span>
-            <div class="card-meta">
-              <time>2019年04月05日</time>
-              
-              <address>
-                
-                <a href='/./categories/hugo'>hugo</a>
-                
-              </address>
-              
-            </div>
-          </div>
+<li><p>如果N比任何字符的值都大，相当于将字符串当做一个N位R进制值，并将它除以M取余</p>
 
-          <div class="card-content">
-            <article class="article">
-              <h1 id="grammar">Grammar</h1>
+<pre><code class="language-c">int hash = 0
+for(int i = 0; i &lt; s.length; i ++)
+    hash = (R * hash + s.charAt(i)) % M
+</code></pre></li>
+</ul></li>
+
+<li><p>Horner法： 用N次乘法，加法和取余来计算一个字符串的散列值（R足够小，不造成溢出）</p></li>
+</ul></li>
+
+<li><p>组合键</p>
+
+<ul>
+<li><p>将多个部分组合起来，如Date, 通常选择适当的M来省去括号内的%M计算，如R为31，则M也为31</p>
+
+<pre><code class="language-c++">int hash = ((((day * R) + month) % M )* R + year ) % M
+</code></pre></li>
+</ul></li>
+</ol>
+
+<h1 id="散列表对象">散列表对象</h1>
+
+<ul>
+<li><p>方法：</p>
 
 <ol>
-<li><p>warning</p>
+<li><p><code>hashCode()</code>: 返回一个32bit整数（默认返回对象的内存地址）</p>
 
- 
+<ul>
+<li><p>将 <code>hashCode()</code> 的返回值转化为一个数组索引值</p>
 
-<div class="admonition warning">
-  <p class="admonition-title">
-    <i class="material-icons">
-       warning 
-    </i>注意
-  </p>
-  <p>This is a warning</p>
-</div></li>
-</ol> 
-              <a href="/./posts/hugo_usage/" class="readmore">阅读全文</a>
+<pre><code>int hash(key x)
+{
+    return (x.hashCode() &amp; 0x7FFFFFFF ) % u
+}
+</code></pre></li>
+
+<li><p>如果 <code>hashCode()</code> 很难计算，可以将其保存起来</p></li>
+</ul></li>
+
+<li><p><code>equals()</code></p>
+
+<ul>
+<li>如果 <code>a.equals(b)</code> 为 <code>true</code>, 则 <code>a.hashCode() == b.hashCode()</code> 也为true,反之则不然<br />
+<br /></li>
+</ul></li>
+</ol></li>
+</ul>
+
+<h1 id="存储键值">存储键值</h1>
+
+<h2 id="分离链接法-拉链法">分离链接法&ndash;拉链法</h2>
+
+<blockquote>
+<p>将大小为M的数组中的每个元素指向一条链表，链表中的每个结点都存储了散列值为该该元素的索引的键值对</p>
+</blockquote>
+
+<ul>
+<li>基本思想： 选择足够大的M，使得所有链表都尽可能短以保证高效的查找<br /></li>
+<li>查找步骤：<br />
+
+<ol>
+<li>根据散列值找到对应的链表<br /></li>
+<li>沿着链表顺序查找相应的链<br /></li>
+</ol></li>
+<li>散列表大小：<br />
+
+<ol>
+<li>若M较大，则查找时间会快<br /></li>
+<li>若M较小，则空间占用小<br /></li>
+</ol></li>
+<li>动态调整散列表大小<br />
+
+<ul>
+<li><code>if (N &gt; 0 &amp; N &lt;= M/8) reSize(M/2)</code><br />
+<br /></li>
+</ul></li>
+</ul>
+
+<h2 id="开放定址散列法-线性探测法">开放定址散列法&ndash;线性探测法</h2>
+
+<blockquote>
+<p>利用空位解决冲突</p>
+</blockquote>
+
+<ul>
+<li>基本思想： 与其将内存用作链表，不如将他们作为在散列表中的空元素，这些空元素可以作为查找结束的标志<br /></li>
+<li>查找： 当碰撞发生时，我们直接检查散列表中的下一个位置，将索引值+1<br />
+
+<ol>
+<li>命中，该位置的链表和被查找的键相同<br /></li>
+<li>未命中，键为空（该位置没有链）<br /></li>
+<li>继续查找，该位置的键和被查找的键不同，直到找打该键或者遇到一个空元素或再次到达该索引<br /></li>
+</ol></li>
+<li>动态调整散列表大小<br />
+
+<ul>
+<li><code>insert</code>: <code>N &gt;= M/2 reSize(2*M)</code><br /></li>
+<li><code>delete</code>: <code>(N&gt;0 &amp; N &lt;= M/8) reSize(M/2)</code><br /></li>
+</ul></li>
+</ul>
+                </article>
+
+              </div>
               
-            </article>
+              <div class="card-action">
+                  
+<div id="comment"></div>
+<style>
+  .v .vwrap .vheader .vinput:focus {
+    border-bottom-color: #607d8b;
+  }
+</style>
+<script>
+  window.VALINECONFIG = {
+    el: '#comment',
+    notify: false,
+    verify: false,
+    appId: '',
+    appKey: '',
+    placeholder: '写点什么吧...',
+    path: window.location.pathname,
+    avatar: 'retro'
+  }
+</script>  
+              </div>
 
+              
+              <div class="pagination-single">
+                
+                
+                
+                <span class="pagination-item next">
+                  <a href="/./posts/alog_time/" rel="next">常用排序/查找算法时间复杂度</a>
+                  <i class="material-icons">navigate_next</i>
+                </span> 
+              </div>
+              
+
+            </div>
           </div>
-
-          
-        </div>
-      </div>
-      
-    </div>
-    <div class="center">
-      <div class="pagination">
-         
-
+        </section>
       </div>
     </div>
   </div>
-</div> <footer class="page-footer">
+  <footer class="page-footer">
   <div class="container">
     <div class="inner">
       <div class="wrapper">
@@ -566,6 +610,7 @@
   </div>
 </footer>
 </main>
+
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script type="text/javascript" src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
