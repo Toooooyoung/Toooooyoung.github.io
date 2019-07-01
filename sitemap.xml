@@ -11,7 +11,7 @@
   
   <url>
     <loc>/./posts/rpc_vs_rest_vs_graphql/</loc>
-    <lastmod>2019-06-27T09:46:56+08:00</lastmod>
+    <lastmod>2019-07-01T16:50:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -25,21 +25,21 @@
   
   <url>
     <loc>/./arch/gfs/</loc>
-    <lastmod>2019-06-27T09:45:54+08:00</lastmod>
+    <lastmod>2019-07-01T16:50:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>/./posts/persistence_and_serialization/</loc>
-    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
+    <lastmod>2019-07-01T16:50:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>/./lintcode/merge_sort/</loc>
-    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
+    <lastmod>2019-07-01T16:50:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -67,7 +67,7 @@
   
   <url>
     <loc>/./categories/api/</loc>
-    <lastmod>2019-06-27T09:46:56+08:00</lastmod>
+    <lastmod>2019-07-01T16:50:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -81,7 +81,7 @@
   
   <url>
     <loc>/./categories/</loc>
-    <lastmod>2019-06-27T09:46:56+08:00</lastmod>
+    <lastmod>2019-07-01T16:50:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -94,14 +94,14 @@
   </url>
   
   <url>
-    <loc>/./tags/interview/</loc>
+    <loc>/./categories/interview/</loc>
     <lastmod>2019-06-23T18:12:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/./categories/interview/</loc>
+    <loc>/./tags/interview/</loc>
     <lastmod>2019-06-23T18:12:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
@@ -123,28 +123,28 @@
   
   <url>
     <loc>/./categories/lintcode/</loc>
-    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
+    <lastmod>2019-07-01T16:50:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./lintcode/</loc>
-    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
+    <lastmod>2019-07-01T16:50:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./tags/medium/</loc>
-    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
+    <lastmod>2019-07-01T16:50:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/./tags/merge-sort/</loc>
-    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
+    <lastmod>2019-07-01T16:50:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -165,7 +165,7 @@
   
   <url>
     <loc>/./categories/python/</loc>
-    <lastmod>2019-04-30T17:15:41+08:00</lastmod>
+    <lastmod>2019-07-01T16:50:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
@@ -178,14 +178,14 @@
   </url>
   
   <url>
-    <loc>/./tags/system-design/</loc>
+    <loc>/./categories/system-design/</loc>
     <lastmod>2019-06-23T18:12:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/./categories/system-design/</loc>
+    <loc>/./tags/system-design/</loc>
     <lastmod>2019-06-23T18:12:25+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>

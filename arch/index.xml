@@ -37,7 +37,21 @@
       <pubDate>Sat, 25 May 2019 22:29:58 +0800</pubDate>
       
       <guid>/./arch/gfs/</guid>
-      <description>Link 中文版论文 解读 Google File System 总结 GFS 阅读笔记 典型分布式系统分析: GFS</description>
+      <description>&lt;h1 id=&#34;link&#34;&gt;Link&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.bizcloudsoft.com/wp-content/uploads/Google-File-System%E4%B8%AD%E6%96%87%E7%89%88_1.0.pdf&#34;&gt;中文版论文&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;解读&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://mr-dai.github.io/gfs/&#34;&gt;Google File System 总结&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.luoyuanhang.com/2017/05/15/gfs-reading-notes/&#34;&gt;GFS 阅读笔记&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/xybaby/p/8967424.html&#34;&gt;典型分布式系统分析: GFS&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
   </channel>

@@ -17,7 +17,24 @@
       <pubDate>Thu, 27 Jun 2019 04:26:59 +0800</pubDate>
       
       <guid>/./posts/rpc_vs_rest_vs_graphql/</guid>
-      <description>衡量API好坏的标准（5C+DV）： Coupling，耦合性 Chattiness/performance(network latency, overload), 网络负载 Client complexity, 客户端复杂度 Congative complexity, 是否易于理解 Caching, 是否能够cache Discoverability, 自发现, 自省</description>
+      <description>&lt;h1 id=&#34;衡量api好坏的标准-5c-dv&#34;&gt;衡量API好坏的标准（5C+DV）：&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Coupling，耦合性&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Chattiness/performance(network latency, overload), 网络负载&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Client complexity, 客户端复杂度&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Congative complexity, 是否易于理解&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Caching, 是否能够cache&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Discoverability, 自发现, 自省(introspect)&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如果没用过API, 从哪里开始使用&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;应该调哪一个API(如多版本情况)&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Versioning， 版本管理&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
     </item>
     
   </channel>

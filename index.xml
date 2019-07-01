@@ -26,7 +26,24 @@
       <pubDate>Thu, 27 Jun 2019 04:26:59 +0800</pubDate>
       
       <guid>/./posts/rpc_vs_rest_vs_graphql/</guid>
-      <description>衡量API好坏的标准（5C+DV）： Coupling，耦合性 Chattiness/performance(network latency, overload), 网络负载 Client complexity, 客户端复杂度 Congative complexity, 是否易于理解 Caching, 是否能够cache Discoverability, 自发现, 自省</description>
+      <description>&lt;h1 id=&#34;衡量api好坏的标准-5c-dv&#34;&gt;衡量API好坏的标准（5C+DV）：&lt;/h1&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Coupling，耦合性&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Chattiness/performance(network latency, overload), 网络负载&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Client complexity, 客户端复杂度&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Congative complexity, 是否易于理解&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Caching, 是否能够cache&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;Discoverability, 自发现, 自省(introspect)&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;如果没用过API, 从哪里开始使用&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;应该调哪一个API(如多版本情况)&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Versioning， 版本管理&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
     </item>
     
     <item>
@@ -55,7 +72,21 @@
       <pubDate>Sat, 25 May 2019 22:29:58 +0800</pubDate>
       
       <guid>/./arch/gfs/</guid>
-      <description>Link 中文版论文 解读 Google File System 总结 GFS 阅读笔记 典型分布式系统分析: GFS</description>
+      <description>&lt;h1 id=&#34;link&#34;&gt;Link&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.bizcloudsoft.com/wp-content/uploads/Google-File-System%E4%B8%AD%E6%96%87%E7%89%88_1.0.pdf&#34;&gt;中文版论文&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;解读&lt;br /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://mr-dai.github.io/gfs/&#34;&gt;Google File System 总结&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.luoyuanhang.com/2017/05/15/gfs-reading-notes/&#34;&gt;GFS 阅读笔记&lt;/a&gt;&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.cnblogs.com/xybaby/p/8967424.html&#34;&gt;典型分布式系统分析: GFS&lt;/a&gt;&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -64,7 +95,15 @@
       <pubDate>Tue, 30 Apr 2019 15:59:13 +0800</pubDate>
       
       <guid>/./posts/persistence_and_serialization/</guid>
-      <description>&lt;p&gt;持久化和序列化都是对象服务, 持久化是解决如何长时间保存数据的问题，序列化是解决对象传输的问题。对象的持久化前提是对象的序列化。&lt;/p&gt;</description>
+      <description>&lt;ul&gt;
+&lt;li&gt;持久化和序列化都是对象服务&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;持久化是解决如何长时间保存数据的问题&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;序列化是解决对象传输的问题&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;对象的持久化前提是对象的序列化。&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     
     <item>
@@ -73,9 +112,7 @@
       <pubDate>Sun, 21 Apr 2019 17:01:26 +0800</pubDate>
       
       <guid>/./lintcode/merge_sort/</guid>
-      <description>&lt;h1 id=&#34;sort-integers-ii-https-www-lintcode-com-problem-sort-integers-ii-description&#34;&gt;&lt;a href=&#34;https://www.lintcode.com/problem/sort-integers-ii/description&#34;&gt;Sort Integers ii&lt;/a&gt;&lt;/h1&gt;
-
-&lt;h2 id=&#34;要点&#34;&gt;要点&lt;/h2&gt;</description>
+      <description>&lt;h1 id=&#34;sort-integers-ii-https-www-lintcode-com-problem-sort-integers-ii-description&#34;&gt;&lt;a href=&#34;https://www.lintcode.com/problem/sort-integers-ii/description&#34;&gt;Sort Integers ii&lt;/a&gt;&lt;/h1&gt;</description>
     </item>
     
     <item>
