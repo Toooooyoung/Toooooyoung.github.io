@@ -304,7 +304,36 @@
       <div class="inner">
         <section class="post-wrapper">
           
-          <div class="post reveal  no-toc ">
+          <div class="toc-panel">
+            <nav id="TableOfContents">
+<ul>
+<li><a href="#衡量api好坏的标准-5c-dv">衡量API好坏的标准（5C+DV）：</a></li>
+<li><a href="#如何选择api需要考虑的问题">如何选择API需要考虑的问题</a></li>
+<li><a href="#rpc">RPC</a>
+<ul>
+<li><a href="#schema">Schema</a></li>
+<li><a href="#advantages">Advantages</a></li>
+<li><a href="#dis">Dis</a></li>
+<li><a href="#scenario">Scenario</a></li>
+</ul></li>
+<li><a href="#rest">REST</a>
+<ul>
+<li><a href="#schema-1">Schema</a></li>
+<li><a href="#advantages-1">Advantages</a></li>
+<li><a href="#dis-1">Dis</a></li>
+<li><a href="#scenario-1">Scenario</a></li>
+</ul></li>
+<li><a href="#graphql">GraphQL</a>
+<ul>
+<li><a href="#advantage">Advantage</a></li>
+<li><a href="#dis-2">Dis</a></li>
+<li><a href="#scenario-2">Scenario</a></li>
+</ul></li>
+</ul>
+</nav>
+          </div>
+          
+          <div class="post reveal ">
             <div class="card">
               <section class="breadcrumb-root">
   <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
@@ -362,16 +391,190 @@
               <div class="card-content">
 
                 <article class="article">
-                  <p>当设计一个新的API模式时一般有以下几点需要进行权衡考虑：</p>
+                  
+
+<h1 id="衡量api好坏的标准-5c-dv">衡量API好坏的标准（5C+DV）：</h1>
 
 <ol>
-<li>coupling，耦合性<br /></li>
-<li>chattiness/performance(network latency, overload), 网络负载<br /></li>
-<li>client complexity, 客户端复杂度<br /></li>
-<li>congative complexity, 是否易于理解<br /></li>
-<li>caching, 是否能够cache<br /></li>
-<li>discoverability, 自发现，由一推多<br /></li>
-<li>versioning， 版本管理<br /></li>
+<li>Coupling，耦合性<br /></li>
+<li>Chattiness/performance(network latency, overload), 网络负载<br /></li>
+<li>Client complexity, 客户端复杂度<br /></li>
+<li>Congative complexity, 是否易于理解<br /></li>
+<li>Caching, 是否能够cache<br /></li>
+<li>Discoverability, 自发现, 自省(introspect)<br />
+
+<ul>
+<li>如果没用过API, 从哪里开始使用<br /></li>
+<li>应该调哪一个API(如多版本情况)<br /></li>
+</ul></li>
+<li>Versioning， 版本管理<br />
+<br /></li>
+</ol>
+
+<h1 id="如何选择api需要考虑的问题">如何选择API需要考虑的问题</h1>
+
+<ol>
+<li>谁使用这个API<br /></li>
+<li>API设计是为了解决什么事情<br />
+<br /></li>
+</ol>
+
+<h1 id="rpc">RPC</h1>
+
+<ul>
+<li>Remote Procedure Call: call the function on another server调用在远程服务器上的方法<br /></li>
+<li>基本元素： function<br />
+<br /></li>
+</ul>
+
+<h2 id="schema">Schema</h2>
+
+<pre><code>Get   /listConversations
+Get   /listMessages
+Post  /sendMessage
+Get   /getAuthor
+Get   /checkMessageStatus
+Get   /listConversationV2
+</code></pre>
+
+<h2 id="advantages">Advantages</h2>
+
+<ol>
+<li>简单明了，容易理解，HTTP协议在这里时透明的，就像调用一个函数一样<br /></li>
+<li>增加一个API只要增加一个函数就好了<br /></li>
+<li>lightweight payloads<br /></li>
+<li>高性能，网络负载低，吞吐量大，适合公司内部微服务之间的大量消息传输<br />
+<br /></li>
+</ol>
+
+<h2 id="dis">Dis</h2>
+
+<ol>
+<li>客户端和服务端耦合性高，调用API需要知道其背后函数的逻辑<br /></li>
+<li>因此会泄露代码细节<br /></li>
+<li>服务的可发现低，作为一个新手不知道去哪找API,如何找下一个API， API具体做什么事<br /></li>
+<li>函数爆炸 function explosion，如果已有的函数不能满足需求，如现有的 <code>listConversation</code> 不能得到更多的消息，需要创建一个 v2版，每一个功能都要写一个新API, 造成冗余，难以维护<br />
+<br /></li>
+</ol>
+
+<h2 id="scenario">Scenario</h2>
+
+<ol>
+<li>适合公司内部微服务之间的大量消息传输<br /></li>
+<li>面向命令，事务，如转账，创建，登录<br />
+<br /></li>
+</ol>
+
+<h1 id="rest">REST</h1>
+
+<ul>
+<li>Representational State Transfer 表现层状态转移<br /></li>
+<li>架构式的设计，为了解耦客户端与服务端而设计<br /></li>
+<li>基本元素： Resource<br /></li>
+<li>定义<br />
+
+<ul>
+<li>使用URI定义一个资源<br /></li>
+<li>使用HTTP的GET/POST/PUT/DELETE来控制资源的增删改查<br /></li>
+<li>HATEOAS: 从一个API能够找到所有其他相关的API<br />
+
+<ul>
+<li>HyperTest As The Engine Of Application State<br /></li>
+<li>返回的结果中加入对其他元素的link<br /></li>
+<li>metadata<br /></li>
+</ul></li>
+<li>无状态<br /></li>
+<li>Cache<br />
+<br />
+<br /></li>
+</ul></li>
+</ul>
+
+<h2 id="schema-1">Schema</h2>
+
+<pre><code>Get /messages
+
+{
+    &quot;href&quot;: &quot;/messages&quot;,
+    &quot;desc&quot;: &quot;...&quot;,
+    &quot;count&quot;: 5,
+    &quot;objects&quot;: [
+        {
+            &quot;href&quot;: &quot;/messages/1&quot;,
+            &quot;value&quot;: &quot;message 1&quot;
+            &quot;author: {
+                &quot;value&quot;: &quot;author1&quot;,
+                &quot;href&quot;: &quot;/message/1/author&quot;
+            }
+    ]
+        }
+}
+</code></pre>
+
+<h2 id="advantages-1">Advantages</h2>
+
+<ol>
+<li>解耦客户端与服务器端<br /></li>
+<li>自省性， 在总入口增加所有可以访问的API的list, metadata<br /></li>
+<li>不用专门写文档，API本身即文档<br /></li>
+<li>API可以演化，为一个资源增加属性不用创建新的API, 可直接升级<br /></li>
+<li>reuse http verbs/cache/content<br /></li>
+<li>缓存已请求的信息，因为每次都是返回资源的所有信息，所以可以在有效期内可以再利用<br />
+<br />
+<br /></li>
+</ol>
+
+<h2 id="dis-1">Dis</h2>
+
+<ol>
+<li>Chatty 如果想获取一条消息的的作者的信息，则要至少请求两次，会增加网络开销<br /></li>
+<li>payloads比较大，返回一些不需要的信息, 增加网络负载<br /></li>
+<li>如果网络条件不好，会增加网络负担<br />
+<br /></li>
+</ol>
+
+<h2 id="scenario-1">Scenario</h2>
+
+<ol>
+<li>Management API, 以资源/对象为模型，如管理用户<br /></li>
+<li>面对各种各样不同客户端，如开放给公众，此时需要良好的文档和自省能力<br /></li>
+<li>需要拥有自省（自发现性）能力<br />
+<br /></li>
+</ol>
+
+<h1 id="graphql">GraphQL</h1>
+
+<ul>
+<li>回你想要<br /></li>
+<li>面向查询<br />
+<br /></li>
+</ul>
+
+<h2 id="advantage">Advantage</h2>
+
+<ol>
+<li>只返回你所想要的，所以网络开销低<br /></li>
+<li>typed schema<br /></li>
+<li>适合图形数据结构，如人脉关系<br />
+<br /></li>
+</ol>
+
+<h2 id="dis-2">Dis</h2>
+
+<ol>
+<li>复杂<br /></li>
+<li>每次请求的东西可能不一样，不能做缓存<br /></li>
+<li>版本管理<br /></li>
+<li>现在使用太早，市场支持不够<br />
+<br /></li>
+</ol>
+
+<h2 id="scenario-2">Scenario</h2>
+
+<ol>
+<li>图形数据结构<br /></li>
+<li>为由于payloads过大造成网络负载过高，带宽过大从而延迟过高而做优化<br /></li>
+<li>每个客户端对payloads的需求很不一样<br /></li>
 </ol>
 
                 </article>
