@@ -16,6 +16,7 @@ categories:
     - 如果没用过API, 从哪里开始使用
     - 应该调哪一个API(如多版本情况)
 7. Versioning， 版本管理
+<!--more-->
 
 # 如何选择API需要考虑的问题
 1. 谁使用这个API
@@ -124,3 +125,6 @@ Get /messages
 1. 图形数据结构
 2. 为由于payloads过大造成网络负载过高，带宽过大从而延迟过高而做优化
 3. 每个客户端对payloads的需求很不一样
+
+# Link
+https://www.youtube.com/watch?v=IvsANO0qZEg&t=111s

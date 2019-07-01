@@ -13,3 +13,5 @@ type: posts
     - [Google File System 总结](https://mr-dai.github.io/gfs/)
     - [GFS 阅读笔记](http://blog.luoyuanhang.com/2017/05/15/gfs-reading-notes/)
     - [典型分布式系统分析: GFS](https://www.cnblogs.com/xybaby/p/8967424.html)
+
+<!--more-->

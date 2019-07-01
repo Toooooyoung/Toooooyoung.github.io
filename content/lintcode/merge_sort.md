@@ -13,8 +13,9 @@ type: posts
 
 # [Sort Integers ii](https://www.lintcode.com/problem/sort-integers-ii/description)
 
-## 要点
 <!--more-->
+## 要点
+
 ### 复杂度
 
 <table>
@@ -36,6 +37,7 @@ type: posts
         <td>稳定</td>
     </tr>
 </table>
+
 
 ## 解法
 ### 递归
