@@ -1,0 +1,16 @@
+version: '3'
+services:
+  blog:
+    build: .
+    environment:
+      - TZ=Asia/Shanghai
+      - NVM_DIR=/usr/local/nvm
+      - NODE_VERSION=8.10.0
+    ports:
+      - "3000:3000"
+      - "3001:3001"
+    volumes:
+      - .:/blog
+    entrypoint:
+      - gulp
+      - serve
