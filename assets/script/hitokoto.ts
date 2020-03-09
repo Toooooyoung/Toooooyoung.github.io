@@ -2,7 +2,7 @@ import U from "./util";
 import animate, { easeOutCubic, easeInCubic } from "./animate";
 const enableFlag = window["getHitokoto"];
 const desc = U.get(".splash p.desc");
-const url = "https://sslapi.hitokoto.cn";
+const url = "https://v1.hitokoto.cn";
 
 function fadeOut(cb) {
   animate.exec(
