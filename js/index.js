@@ -3972,7 +3972,7 @@ function tab () {
 
 var enableFlag = window["getHitokoto"];
 var desc = util.get(".splash p.desc");
-var url = "https://sslapi.hitokoto.cn";
+var url = "https://v1.hitokoto.cn";
 function fadeOut(cb) {
     animate.exec(function (percent) { return util.css(desc, "opacity", "" + (1 - percent)); }, 300, easeOutCubic, cb);
 }
