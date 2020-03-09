@@ -1,6 +1,6 @@
 baseURL = ""
 languageCode = "zh-cn"
-title = "Jianlanz"
+title = "心之所向，素履以往"
 metaDataFormat = "yaml"
 
 theme = "canoe"
