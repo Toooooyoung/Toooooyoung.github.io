@@ -1,4 +1,4 @@
-From ubuntu:16.04
+From ubuntu:18.04
 # refer
 # https://gist.github.com/remarkablemark/aacf14c29b3f01d6900d13137b21db3a
 
@@ -40,5 +40,6 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 # install gulp
 RUN npm install -g npm@6.9.0 gulp@3.9.1
+RUN npm install npm@6.9.0 gulp@3.9.1
 
 ENTRYPOINT gulp serve
