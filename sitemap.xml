@@ -129,13 +129,6 @@
   </url>
   
   <url>
-    <loc>/./</loc>
-    <lastmod>2019-07-02T01:38:39+08:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/./categories/jiuzhang/</loc>
     <lastmod>2019-07-02T01:38:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -214,6 +207,13 @@
   
   <url>
     <loc>/./tags/</loc>
+    <lastmod>2019-07-02T01:38:39+08:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/./</loc>
     <lastmod>2019-07-02T01:38:39+08:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0</priority>
