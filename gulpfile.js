@@ -30,6 +30,7 @@ const srcDir = "assets";
 const devDir = ".tmp";
 const prodDir = siteConf.publishDir || "public";
 const themeDir = "themes/canoe";
+const contentDir = "content";
 
 let env = "dev"; // dev , prod , theme
 
@@ -239,6 +240,7 @@ gulp.task("serve", ["build:dev"], () => {
   gulp.watch(`${srcDir}/style/**/*.{scss,css}`, ["style"]);
   gulp.watch(`${srcDir}/image/**/*.{png,jpg}`, ["image"]);
   gulp.watch(`${srcDir}/pimg/**/*.{png,jpg}`, ["pimg"]);
+  gulp.watch(`${contentDir}/**/*.md`, ["hugo"]);
   const toReload = [`${devDir}/**/*.html`, `${devDir}/js/**/*.js`];
 
   gulp.watch(toReload).on("change", () => bs.reload());
