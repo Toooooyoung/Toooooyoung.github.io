@@ -6,7 +6,7 @@
   
   <meta charset="UTF-8">
   <title>
-    How to Design a Good API | 心之所向，素履以往
+    函数式编程 | 心之所向，素履以往
   </title>
 
 
@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="/./posts/rpc_vs_rest_vs_graphql/" />
+  <link rel="canonical" href="/./java/funtional_programming/" />
 
   
   
@@ -319,29 +319,34 @@
           <div class="toc-panel">
             <nav id="TableOfContents">
 <ul>
-<li><a href="#衡量api好坏的标准-5c-dv">衡量API好坏的标准（5C+DV）：</a></li>
-<li><a href="#如何选择api需要考虑的问题">如何选择API需要考虑的问题</a></li>
-<li><a href="#rpc">RPC</a>
+<li>
 <ul>
-<li><a href="#schema">Schema</a></li>
-<li><a href="#advantages">Advantages</a></li>
-<li><a href="#dis">Dis</a></li>
-<li><a href="#scenario">Scenario</a></li>
-</ul></li>
-<li><a href="#rest">REST</a>
+<li><a href="#lambda-表达式">Lambda 表达式</a>
 <ul>
-<li><a href="#schema-1">Schema</a></li>
-<li><a href="#advantages-1">Advantages</a></li>
-<li><a href="#dis-1">Dis</a></li>
-<li><a href="#scenario-1">Scenario</a></li>
+<li><a href="#lambda语法">Lambda语法</a></li>
 </ul></li>
-<li><a href="#graphql">GraphQL</a>
+<li><a href="#方法引用">方法引用</a>
 <ul>
-<li><a href="#advantage">Advantage</a></li>
-<li><a href="#dis-2">Dis</a></li>
-<li><a href="#scenario-2">Scenario</a></li>
+<li><a href="#1-静态方法">1. 静态方法</a></li>
+<li><a href="#2-内部对象的实例方法">2. 内部对象的实例方法</a></li>
+<li><a href="#3-外部对象的实例方法">3. 外部对象的实例方法</a></li>
+<li><a href="#4-构造方法">4. 构造方法</a></li>
 </ul></li>
-<li><a href="#link">Link</a></li>
+<li><a href="#函数式接口">函数式接口</a>
+<ul>
+<li><a href="#命名规约">命名规约</a></li>
+</ul></li>
+<li><a href="#常用函数式接口">常用函数式接口</a>
+<ul>
+<li><a href="#runnable">Runnable</a></li>
+<li><a href="#function">Function</a></li>
+<li><a href="#supplier">Supplier</a></li>
+<li><a href="#consumer">Consumer</a></li>
+<li><a href="#predicate">Predicate</a></li>
+</ul></li>
+<li><a href="#高阶函数">高阶函数</a></li>
+<li><a href="#闭包">闭包</a></li>
+</ul></li>
 </ul>
 </nav>
           </div>
@@ -359,12 +364,11 @@
         
     
       
-    <a class="breadcrumb" href='/./posts/'>Posts</a>
-    
+    <a class="breadcrumb" href='/./java/'>Java</a>
         
     
       
-    <span class="breadcrumb">How to Design a Good API</span>
+    <span class="breadcrumb">函数式编程</span>
 
         
     
@@ -373,7 +377,7 @@
 </section>
               
               <div class="card-header postinfo">
-                <span class="card-title">How to Design a Good API </span>
+                <span class="card-title">函数式编程 </span>
               </div>
               <div class="card-header date">
                 
@@ -381,19 +385,19 @@
                   <i class="material-icons">book</i>
                   <address>
                     归档：
-                    <a href="/./categories/api">API</a>&nbsp; 
+                    <a href="/./categories/java">java</a>&nbsp; 
                   </address>
                 </div>
                 
                 <div class="group">
                   <i class="material-icons">flag</i>
-                  <time>创建：2019年06月27日
+                  <time>创建：2020年04月05日
                   </time>
                 </div>
                 
                 <div class="group">
                   <i class="material-icons">mode_edit</i>
-                  <time>修改：2019年07月01日
+                  <time>修改：2020年04月05日
                   </time>
                 </div>
                 
@@ -404,195 +408,245 @@
               <div class="card-content">
 
                 <article class="article">
-                  <h1 id="衡量api好坏的标准-5c-dv">衡量API好坏的标准（5C+DV）：</h1>
+                  <ul>
+<li><p>OO(Object oriented, 面向对象): 抽象数据</p></li>
+
+<li><p>FP(Functional programming, 函数式编程): 抽象行为</p>
 
 <ol>
-<li>Coupling，耦合性<br /></li>
-<li>Chattiness/performance(network latency, overload), 网络负载<br /></li>
-<li>Client complexity, 客户端复杂度<br /></li>
-<li>Congative complexity, 是否易于理解<br /></li>
-<li>Caching, 是否能够cache<br /></li>
-<li>Discoverability, 自发现, 自省(introspect)<br />
-
-<ul>
-<li>如果没用过API, 从哪里开始使用<br /></li>
-<li>应该调哪一个API(如多版本情况)<br /></li>
-</ul></li>
-<li>Versioning， 版本管理<br />
+<li>可以并行编程<br /></li>
+<li>代码可靠性<br /></li>
+<li>代码创建和库复用<br />
+<br />
 <br />
 <br /></li>
-</ol>
-
-<h1 id="如何选择api需要考虑的问题">如何选择API需要考虑的问题</h1>
-
-<ol>
-<li>谁使用这个API<br /></li>
-<li>API设计是为了解决什么事情<br />
-<br /></li>
-</ol>
-
-<h1 id="rpc">RPC</h1>
-
-<ul>
-<li>Remote Procedure Call: call the function on another server调用在远程服务器上的方法<br /></li>
-<li>基本元素： function<br />
-<br /></li>
+</ol></li>
 </ul>
 
-<h2 id="schema">Schema</h2>
+<h2 id="lambda-表达式">Lambda 表达式</h2>
 
-<pre><code>Get   /listConversations
-Get   /listMessages
-Post  /sendMessage
-Get   /getAuthor
-Get   /checkMessageStatus
-Get   /listConversationV2
+<p>Lambda表达式是使用最小可能语法编写的函数定义：</p>
+
+<ol>
+<li><p>Lambda表达式产生函数，而不是类。在JVM上，一切都是一个类，因此在幕后执行各种操作使 Lambda 看起来像函数 —— 但作为程序员, 你可以高兴地假装它们“只是函数”。</p></li>
+
+<li><p>Lambda 语法尽可能少，这正是为了使 Lambda 易于编写和使用。</p></li>
+</ol>
+
+<h3 id="lambda语法">Lambda语法</h3>
+
+<p>语法： (参数1,  参数2&hellip;) -&gt; 方法体</p>
+
+<pre><code class="language-java">interface Multi {
+  String twoArg(String head, Double d);
+}
+
+// 单行语句
+(h, n) -&gt; h + n
+
+// 多行语句
+() -&gt; {
+    System.out.println(&quot;moreLines()&quot;);
+    return &quot;from moreLines()&quot;;
+  }
 </code></pre>
 
-<h2 id="advantages">Advantages</h2>
+<ol>
+<li>参数：h<br />
 
 <ol>
-<li>简单明了，容易理解，HTTP协议在这里时透明的，就像调用一个函数一样<br /></li>
-<li>增加一个API只要增加一个函数就好了<br /></li>
-<li>lightweight payloads<br /></li>
-<li>高性能，网络负载低，吞吐量大，适合公司内部微服务之间的大量消息传输<br />
-<br /></li>
-</ol>
-
-<h2 id="dis">Dis</h2>
+<li>当没有参数时，必须有括号<code>()</code>表示空参数列表<br /></li>
+<li>当只有一个参数时, 可以省略括号<br /></li>
+<li>当有多个参数时, 将参数列表放在<code>()</code>中<br /></li>
+</ol></li>
+<li>接着 <code>-&gt;</code>，可视为“产出”。<br /></li>
+<li><code>-&gt;</code> 之后的内容都是方法体<br />
 
 <ol>
-<li>客户端和服务端耦合性高，调用API需要知道其背后函数的逻辑<br /></li>
-<li>因此会泄露代码细节<br /></li>
-<li>服务的可发现低，作为一个新手不知道去哪找API,如何找下一个API， API具体做什么事<br /></li>
-<li>函数爆炸 function explosion，如果已有的函数不能满足需求，如现有的 <code>listConversation</code> 不能得到更多的消息，需要创建一个 v2版，每一个功能都要写一个新API, 造成冗余，难以维护<br />
-<br /></li>
-</ol>
-
-<h2 id="scenario">Scenario</h2>
-
-<ol>
-<li>适合公司内部微服务之间的大量消息传输<br /></li>
-<li>面向命令，事务，如转账，创建，登录<br />
-<br /></li>
-</ol>
-
-<h1 id="rest">REST</h1>
-
-<ul>
-<li>Representational State Transfer 表现层状态转移<br /></li>
-<li>架构式的设计，为了解耦客户端与服务端而设计<br /></li>
-<li>基本元素： Resource<br /></li>
-<li>定义<br />
-
-<ul>
-<li>使用URI定义一个资源<br /></li>
-<li>使用HTTP的GET/POST/PUT/DELETE来控制资源的增删改查<br /></li>
-<li>HATEOAS: 从一个API能够找到所有其他相关的API<br />
-
-<ul>
-<li>HyperTest As The Engine Of Application State<br /></li>
-<li>返回的结果中加入对其他元素的link<br /></li>
-<li>metadata<br /></li>
-</ul></li>
-<li>无状态<br /></li>
-<li>Cache<br />
+<li>当方法体是单行语句时, 不需要<code>{}</code>, 语句结尾符<code>;</code>和<code>return</code>,语句的计算结果即为返回值<br /></li>
+<li>当方法体是多行语句时, 需要<code>{}</code>，语句结尾符<code>;</code>和<code>return</code><br />
+<br />
 <br />
 <br /></li>
-</ul></li>
-</ul>
+</ol></li>
+</ol>
 
-<h2 id="schema-1">Schema</h2>
+<h2 id="方法引用">方法引用</h2>
 
-<pre><code>Get /messages
+<p>方法引用是Java8中引入的新特性，它提供了一种引用方法而不执行方法的方式，可以让我们重复使用现用方法的定义，做为某些Lambda表达式的另一种更简洁的写法。</p>
 
-{
-    &quot;href&quot;: &quot;/messages&quot;,
-    &quot;desc&quot;: &quot;...&quot;,
-    &quot;count&quot;: 5,
-    &quot;objects&quot;: [
-        {
-            &quot;href&quot;: &quot;/messages/1&quot;,
-            &quot;value&quot;: &quot;message 1&quot;
-            &quot;author: {
-                &quot;value&quot;: &quot;author1&quot;,
-                &quot;href&quot;: &quot;/message/1/author&quot;
-            }
-    ]
-        }
+<p>语法:  类名或对象名，后面跟 <code>::</code>，然后跟方法名称</p>
+
+<h3 id="1-静态方法">1. 静态方法</h3>
+
+<p>指向静态方法的引用，语法：<code>类名::静态方法名</code></p>
+
+<pre><code class="language-java">(String str) -&gt; System.out.print(str)
+// 转为方法引用形式
+System.out::print
+</code></pre>
+
+<h3 id="2-内部对象的实例方法">2. 内部对象的实例方法</h3>
+
+<p>指向Lambda表达式内部对象的实例方法的引用，语法：<code>类名::实例方法名</code></p>
+
+<pre><code class="language-java">(Mask mask) -&gt; mask.isUsed()
+// 转为方法引用形式
+Mask::isUsed
+</code></pre>
+
+<h3 id="3-外部对象的实例方法">3. 外部对象的实例方法</h3>
+
+<p>指向Lambda表达式外部对象的实例方法的引用，语法：<code>实例名::实例方法名</code></p>
+
+<pre><code class="language-java">String type = &quot;aType&quot;;
+(String newType) -&gt; type.equals(newType)
+// 转为方法引用形式
+type::equals
+</code></pre>
+
+<h3 id="4-构造方法">4. 构造方法</h3>
+
+<p>指向构造方法的引用,<code>类名:: new</code></p>
+
+<pre><code class="language-java">(String brand, String type) -&gt; new Mask(brand, type)
+// 转为方法引用形式
+Mask::new
+</code></pre>
+
+<h2 id="函数式接口">函数式接口</h2>
+
+<p>函数式接口就是有且仅有一个抽象方法的接口</p>
+
+<pre><code>1. 接口interface
+2. 有且仅有一个抽象方法，即可以多0或多个非抽象方法
+3. 带有`FunctionalInterface`的interface，编译器检查该interface是否符合第2条的约束，如果不符合，则报错
+4. 函数式接口的抽象方法的签名和Lambda表达式的签名必须一致，签名包括入参参数类型和返回值
+</code></pre>
+
+<h3 id="命名规约">命名规约</h3>
+
+<p><code>java.util.function</code> 包旨在创建一组完整的目标接口，使得我们一般情况下不需再定义自己的接口。这主要是因为基本类型会产生一小部分接口。 如果你了解命名模式，顾名思义就能知道特定接口的作用。</p>
+
+<p>以下是基本命名准则：</p>
+
+<ol>
+<li>如果只处理对象而非基本类型，名称则为 <code>Function</code>，<code>Consumer</code>，<code>Predicate</code> 等。参数类型通过泛型添加。<br /></li>
+<li>如果接收的参数是基本类型，则由名称的第一部分表示，如 <code>LongConsumer</code>，<code>DoubleFunction</code>，<code>IntPredicate</code> 等，但基本 <code>Supplier</code> 类型例外。<br /></li>
+<li>如果返回值为基本类型，则用 <code>To</code> 表示，如 <code>ToLongFunction</code> 和 <code>IntToLongFunction</code>。<br /></li>
+<li>如果返回值类型与参数类型一致，则是一个运算符：单个参数使用 <code>UnaryOperator</code>，两个参数使用 <code>BinaryOperator</code>。<br /></li>
+<li>如果接收两个参数且返回值为布尔值，则是一个谓词（Predicate）。<br /></li>
+<li>如果接收的两个参数类型不同，则名称中有一个 <code>Bi</code><br />
+<br />
+<br />
+<br />
+<br />
+<br /></li>
+</ol>
+
+<h2 id="常用函数式接口">常用函数式接口</h2>
+
+<h3 id="runnable">Runnable</h3>
+
+<pre><code class="language-java">// 内置，不需要导入，一般用于多线程编程创建线程函数体
+package java.lang;
+
+@FunctionalInterface
+public interface Runnable {
+    public abstract void run();
 }
 </code></pre>
 
-<h2 id="advantages-1">Advantages</h2>
+<h3 id="function">Function</h3>
+
+<pre><code class="language-java">package java.util.function;
+
+@FunctionalInterface
+public interface Function&lt;T, R&gt; {
+    R apply(T t);
+}
+</code></pre>
+
+<h3 id="supplier">Supplier</h3>
+
+<pre><code class="language-java">package java.util.function;
+
+@FunctionalInterface
+public interface Supplier&lt;T&gt; {
+    T get();
+}
+</code></pre>
+
+<h3 id="consumer">Consumer</h3>
+
+<pre><code class="language-java">package java.util.function;
+
+@FunctionalInterface
+public interface Consumer&lt;T&gt; {
+    void accept(T t);
+}
+</code></pre>
+
+<h3 id="predicate">Predicate</h3>
+
+<pre><code class="language-java">package java.util.function;
+
+@FunctionalInterface
+public interface Predicate&lt;T&gt; {
+    boolean test(T t);
+}
+</code></pre>
+
+<p>几个常用的函数式接口入参和返回，都是泛型对象的，也就是必须为引用类型。当我们传入或获取的是基本数据类型时，将会发生自动装箱和自动拆箱，带来不必要的性能损耗。</p>
+
+<h2 id="高阶函数">高阶函数</h2>
+
+<p>产生或消费一个函数， 即入参或返回值为函数的函数</p>
 
 <ol>
-<li>解耦客户端与服务器端<br /></li>
-<li>自省性， 在总入口增加所有可以访问的API的list, metadata<br /></li>
-<li>不用专门写文档，API本身即文档<br /></li>
-<li>API可以演化，为一个资源增加属性不用创建新的API, 可直接升级<br /></li>
-<li>reuse http verbs/cache/content<br /></li>
-<li>缓存已请求的信息，因为每次都是返回资源的所有信息，所以可以在有效期内可以再利用<br />
-<br />
+<li>要消费一个函数，消费函数需要在参数列表正确地描述函数类型<br /></li>
+<li>要产生一个函数，产生函数需要在返回值正确地描述函数类型<br />
 <br /></li>
 </ol>
 
-<h2 id="dis-1">Dis</h2>
+<pre><code class="language-java">import java.util.function.*;
+
+class I {
+  @Override
+  public String toString() { return &quot;I&quot;; }
+}
+
+class O {
+  @Override
+  public String toString() { return &quot;O&quot;; }
+}
+
+public class TransformFunction {
+  static Function&lt;I,O&gt; transform(Function&lt;I,O&gt; in) {
+    return in.andThen(o -&gt; {
+      System.out.println(o);
+      return o;
+    });
+  }
+  public static void main(String[] args) {
+    Function&lt;I,O&gt; f2 = transform(i -&gt; {
+      System.out.println(i);
+      return new O();
+    });
+    O o = f2.apply(new I());
+  }
+}
+</code></pre>
+
+<h2 id="闭包">闭包</h2>
+
+<p>使用函数作用域之外的非全局变量的变量</p>
 
 <ol>
-<li>Chatty 如果想获取一条消息的的作者的信息，则要至少请求两次，会增加网络开销<br /></li>
-<li>payloads比较大，返回一些不需要的信息, 增加网络负载<br /></li>
-<li>如果网络条件不好，会增加网络负担<br />
-<br /></li>
+<li>从 Lambda 表达式引用的局部变量必须是 <code>final</code> 或者是等同 <code>final</code> 效果的。<br /></li>
+<li>这就叫做<strong>等同 final 效果</strong>（Effectively Final）。这个术语是在 Java 8 才开始出现的，表示虽然没有明确地声明变量是 <code>final</code> 的，但是因变量值没被改变过而实际有了 <code>final</code> 同等的效果。 如果局部变量的初始值永远不会改变，那么它实际上就是 <code>final</code> 的。<br /></li>
+<li><strong>等同 final 效果</strong>意味着可以在变量声明前加上 <strong>final</strong> 关键字而不用更改任何其余代码。 实际上它就是具备 <code>final</code> 效果的，只是没有明确说明。<br /></li>
 </ol>
-
-<h2 id="scenario-1">Scenario</h2>
-
-<ol>
-<li>Management API, 以资源/对象为模型，如管理用户<br /></li>
-<li>面对各种各样不同客户端，如开放给公众，此时需要良好的文档和自省能力<br /></li>
-<li>需要拥有自省（自发现性）能力<br />
-<br /></li>
-</ol>
-
-<h1 id="graphql">GraphQL</h1>
-
-<ul>
-<li>回你想要<br /></li>
-<li>面向查询<br />
-<br /></li>
-</ul>
-
-<h2 id="advantage">Advantage</h2>
-
-<ol>
-<li>只返回你所想要的，所以网络开销低<br /></li>
-<li>typed schema<br /></li>
-<li>适合图形数据结构，如人脉关系<br />
-<br /></li>
-</ol>
-
-<h2 id="dis-2">Dis</h2>
-
-<ol>
-<li>复杂<br /></li>
-<li>每次请求的东西可能不一样，不能做缓存<br /></li>
-<li>版本管理<br /></li>
-<li>现在使用太早，市场支持不够<br />
-<br /></li>
-</ol>
-
-<h2 id="scenario-2">Scenario</h2>
-
-<ol>
-<li>图形数据结构<br /></li>
-<li>为由于payloads过大造成网络负载过高，带宽过大从而延迟过高而做优化<br /></li>
-<li>每个客户端对payloads的需求很不一样<br />
-<br /></li>
-</ol>
-
-<h1 id="link">Link</h1>
-
-<p><a href="https://www.youtube.com/watch?v=IvsANO0qZEg&amp;t=111s">https://www.youtube.com/watch?v=IvsANO0qZEg&amp;t=111s</a></p>
                 </article>
 
               </div>
@@ -621,15 +675,11 @@ Get   /listConversationV2
 
               
               <div class="pagination-single">
-                 
-                <span class="pagination-item previous">
-                  <i class="material-icons">navigate_before</i>
-                  <a href="/./posts/alog_time/" rel="prev">常用排序/查找算法时间复杂度</a>
-                </span> 
+                
                 
                 
                 <span class="pagination-item next">
-                  <a href="/./arch/newsfeed/" rel="next">新鲜事系统</a>
+                  <a href="/./arch/4s/" rel="next">4s分析法</a>
                   <i class="material-icons">navigate_next</i>
                 </span> 
               </div>

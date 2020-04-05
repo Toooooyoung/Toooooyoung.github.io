@@ -6,10 +6,32 @@
     <description>Recent content on 心之所向，素履以往</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Mon, 01 Jul 2019 23:21:20 +0800</lastBuildDate>
+    <lastBuildDate>Sun, 05 Apr 2020 13:48:33 +0800</lastBuildDate>
     
 	<atom:link href="/./index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>函数式编程</title>
+      <link>/./java/funtional_programming/</link>
+      <pubDate>Sun, 05 Apr 2020 13:48:33 +0800</pubDate>
+      
+      <guid>/./java/funtional_programming/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;OO(Object oriented, 面向对象): 抽象数据&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;FP(Functional programming, 函数式编程): 抽象行为&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;可以并行编程&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;代码可靠性&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;代码创建和库复用&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     
     <item>
       <title>4s分析法</title>

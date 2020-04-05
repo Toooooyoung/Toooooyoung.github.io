@@ -6,7 +6,7 @@
   
   <meta charset="UTF-8">
   <title>
-    How to Design a Good API | 心之所向，素履以往
+    Javas | 心之所向，素履以往
   </title>
 
 
@@ -14,7 +14,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,maximum-scale=1,initial-scale=1">
 
   
-  <link rel="canonical" href="/./posts/rpc_vs_rest_vs_graphql/" />
+  <link rel="canonical" href="/./java/" />
 
   
   
@@ -304,51 +304,11 @@
     </li>
   </ul>
   
-
-
-
-
-
-
-<main id="single" role="main" class="main-panel">
-  <div class="page-content">
-    <div class="container container-ex">
-      <div class="inner">
-        <section class="post-wrapper">
-          
-          <div class="toc-panel">
-            <nav id="TableOfContents">
-<ul>
-<li><a href="#衡量api好坏的标准-5c-dv">衡量API好坏的标准（5C+DV）：</a></li>
-<li><a href="#如何选择api需要考虑的问题">如何选择API需要考虑的问题</a></li>
-<li><a href="#rpc">RPC</a>
-<ul>
-<li><a href="#schema">Schema</a></li>
-<li><a href="#advantages">Advantages</a></li>
-<li><a href="#dis">Dis</a></li>
-<li><a href="#scenario">Scenario</a></li>
-</ul></li>
-<li><a href="#rest">REST</a>
-<ul>
-<li><a href="#schema-1">Schema</a></li>
-<li><a href="#advantages-1">Advantages</a></li>
-<li><a href="#dis-1">Dis</a></li>
-<li><a href="#scenario-1">Scenario</a></li>
-</ul></li>
-<li><a href="#graphql">GraphQL</a>
-<ul>
-<li><a href="#advantage">Advantage</a></li>
-<li><a href="#dis-2">Dis</a></li>
-<li><a href="#scenario-2">Scenario</a></li>
-</ul></li>
-<li><a href="#link">Link</a></li>
-</ul>
-</nav>
-          </div>
-          
-          <div class="post reveal ">
-            <div class="card">
-              <section class="breadcrumb-root">
+<main id="list" role="main" class="main-panel">
+  <div class="container container-ex">
+  <div class="inner">
+    
+    <section class="breadcrumb-root">
   <div class="breadcrumbs" role="navigation" aria-label="breadcrumbs navigation">
      
 
@@ -359,289 +319,69 @@
         
     
       
-    <a class="breadcrumb" href='/./posts/'>Posts</a>
-    
-        
-    
-      
-    <span class="breadcrumb">How to Design a Good API</span>
+    <span class="breadcrumb">Javas</span>
 
         
     
       
   </div>
 </section>
+    
+    <div class="waterfall">
+       
+      <div class="waterfall__item">
+        <div class="card post post-summary reveal">
+          <div class="card-header postinfo">
+            <span class="card-title">
+              <a href="/./java/funtional_programming/">函数式编程 </a>
+            </span>
+            <div class="card-meta">
+              <time>2020年04月05日</time>
               
-              <div class="card-header postinfo">
-                <span class="card-title">How to Design a Good API </span>
-              </div>
-              <div class="card-header date">
+              <address>
                 
-                <div class="group">
-                  <i class="material-icons">book</i>
-                  <address>
-                    归档：
-                    <a href="/./categories/api">API</a>&nbsp; 
-                  </address>
-                </div>
+                <a href='/./categories/java'>java</a>
                 
-                <div class="group">
-                  <i class="material-icons">flag</i>
-                  <time>创建：2019年06月27日
-                  </time>
-                </div>
-                
-                <div class="group">
-                  <i class="material-icons">mode_edit</i>
-                  <time>修改：2019年07月01日
-                  </time>
-                </div>
-                
-                
-
-              </div>
+              </address>
               
-              <div class="card-content">
-
-                <article class="article">
-                  <h1 id="衡量api好坏的标准-5c-dv">衡量API好坏的标准（5C+DV）：</h1>
-
-<ol>
-<li>Coupling，耦合性<br /></li>
-<li>Chattiness/performance(network latency, overload), 网络负载<br /></li>
-<li>Client complexity, 客户端复杂度<br /></li>
-<li>Congative complexity, 是否易于理解<br /></li>
-<li>Caching, 是否能够cache<br /></li>
-<li>Discoverability, 自发现, 自省(introspect)<br />
-
-<ul>
-<li>如果没用过API, 从哪里开始使用<br /></li>
-<li>应该调哪一个API(如多版本情况)<br /></li>
-</ul></li>
-<li>Versioning， 版本管理<br />
-<br />
-<br /></li>
-</ol>
-
-<h1 id="如何选择api需要考虑的问题">如何选择API需要考虑的问题</h1>
-
-<ol>
-<li>谁使用这个API<br /></li>
-<li>API设计是为了解决什么事情<br />
-<br /></li>
-</ol>
-
-<h1 id="rpc">RPC</h1>
-
-<ul>
-<li>Remote Procedure Call: call the function on another server调用在远程服务器上的方法<br /></li>
-<li>基本元素： function<br />
-<br /></li>
-</ul>
-
-<h2 id="schema">Schema</h2>
-
-<pre><code>Get   /listConversations
-Get   /listMessages
-Post  /sendMessage
-Get   /getAuthor
-Get   /checkMessageStatus
-Get   /listConversationV2
-</code></pre>
-
-<h2 id="advantages">Advantages</h2>
-
-<ol>
-<li>简单明了，容易理解，HTTP协议在这里时透明的，就像调用一个函数一样<br /></li>
-<li>增加一个API只要增加一个函数就好了<br /></li>
-<li>lightweight payloads<br /></li>
-<li>高性能，网络负载低，吞吐量大，适合公司内部微服务之间的大量消息传输<br />
-<br /></li>
-</ol>
-
-<h2 id="dis">Dis</h2>
-
-<ol>
-<li>客户端和服务端耦合性高，调用API需要知道其背后函数的逻辑<br /></li>
-<li>因此会泄露代码细节<br /></li>
-<li>服务的可发现低，作为一个新手不知道去哪找API,如何找下一个API， API具体做什么事<br /></li>
-<li>函数爆炸 function explosion，如果已有的函数不能满足需求，如现有的 <code>listConversation</code> 不能得到更多的消息，需要创建一个 v2版，每一个功能都要写一个新API, 造成冗余，难以维护<br />
-<br /></li>
-</ol>
-
-<h2 id="scenario">Scenario</h2>
-
-<ol>
-<li>适合公司内部微服务之间的大量消息传输<br /></li>
-<li>面向命令，事务，如转账，创建，登录<br />
-<br /></li>
-</ol>
-
-<h1 id="rest">REST</h1>
-
-<ul>
-<li>Representational State Transfer 表现层状态转移<br /></li>
-<li>架构式的设计，为了解耦客户端与服务端而设计<br /></li>
-<li>基本元素： Resource<br /></li>
-<li>定义<br />
-
-<ul>
-<li>使用URI定义一个资源<br /></li>
-<li>使用HTTP的GET/POST/PUT/DELETE来控制资源的增删改查<br /></li>
-<li>HATEOAS: 从一个API能够找到所有其他相关的API<br />
-
-<ul>
-<li>HyperTest As The Engine Of Application State<br /></li>
-<li>返回的结果中加入对其他元素的link<br /></li>
-<li>metadata<br /></li>
-</ul></li>
-<li>无状态<br /></li>
-<li>Cache<br />
-<br />
-<br /></li>
-</ul></li>
-</ul>
-
-<h2 id="schema-1">Schema</h2>
-
-<pre><code>Get /messages
-
-{
-    &quot;href&quot;: &quot;/messages&quot;,
-    &quot;desc&quot;: &quot;...&quot;,
-    &quot;count&quot;: 5,
-    &quot;objects&quot;: [
-        {
-            &quot;href&quot;: &quot;/messages/1&quot;,
-            &quot;value&quot;: &quot;message 1&quot;
-            &quot;author: {
-                &quot;value&quot;: &quot;author1&quot;,
-                &quot;href&quot;: &quot;/message/1/author&quot;
-            }
-    ]
-        }
-}
-</code></pre>
-
-<h2 id="advantages-1">Advantages</h2>
-
-<ol>
-<li>解耦客户端与服务器端<br /></li>
-<li>自省性， 在总入口增加所有可以访问的API的list, metadata<br /></li>
-<li>不用专门写文档，API本身即文档<br /></li>
-<li>API可以演化，为一个资源增加属性不用创建新的API, 可直接升级<br /></li>
-<li>reuse http verbs/cache/content<br /></li>
-<li>缓存已请求的信息，因为每次都是返回资源的所有信息，所以可以在有效期内可以再利用<br />
-<br />
-<br /></li>
-</ol>
-
-<h2 id="dis-1">Dis</h2>
-
-<ol>
-<li>Chatty 如果想获取一条消息的的作者的信息，则要至少请求两次，会增加网络开销<br /></li>
-<li>payloads比较大，返回一些不需要的信息, 增加网络负载<br /></li>
-<li>如果网络条件不好，会增加网络负担<br />
-<br /></li>
-</ol>
-
-<h2 id="scenario-1">Scenario</h2>
-
-<ol>
-<li>Management API, 以资源/对象为模型，如管理用户<br /></li>
-<li>面对各种各样不同客户端，如开放给公众，此时需要良好的文档和自省能力<br /></li>
-<li>需要拥有自省（自发现性）能力<br />
-<br /></li>
-</ol>
-
-<h1 id="graphql">GraphQL</h1>
-
-<ul>
-<li>回你想要<br /></li>
-<li>面向查询<br />
-<br /></li>
-</ul>
-
-<h2 id="advantage">Advantage</h2>
-
-<ol>
-<li>只返回你所想要的，所以网络开销低<br /></li>
-<li>typed schema<br /></li>
-<li>适合图形数据结构，如人脉关系<br />
-<br /></li>
-</ol>
-
-<h2 id="dis-2">Dis</h2>
-
-<ol>
-<li>复杂<br /></li>
-<li>每次请求的东西可能不一样，不能做缓存<br /></li>
-<li>版本管理<br /></li>
-<li>现在使用太早，市场支持不够<br />
-<br /></li>
-</ol>
-
-<h2 id="scenario-2">Scenario</h2>
-
-<ol>
-<li>图形数据结构<br /></li>
-<li>为由于payloads过大造成网络负载过高，带宽过大从而延迟过高而做优化<br /></li>
-<li>每个客户端对payloads的需求很不一样<br />
-<br /></li>
-</ol>
-
-<h1 id="link">Link</h1>
-
-<p><a href="https://www.youtube.com/watch?v=IvsANO0qZEg&amp;t=111s">https://www.youtube.com/watch?v=IvsANO0qZEg&amp;t=111s</a></p>
-                </article>
-
-              </div>
-              
-              <div class="card-action">
-                  
-<div id="comment"></div>
-<style>
-  .v .vwrap .vheader .vinput:focus {
-    border-bottom-color: #607d8b;
-  }
-</style>
-<script>
-  window.VALINECONFIG = {
-    el: '#comment',
-    notify: false,
-    verify: false,
-    appId: '',
-    appKey: '',
-    placeholder: '写点什么吧...',
-    path: window.location.pathname,
-    avatar: 'retro'
-  }
-</script>  
-              </div>
-
-              
-              <div class="pagination-single">
-                 
-                <span class="pagination-item previous">
-                  <i class="material-icons">navigate_before</i>
-                  <a href="/./posts/alog_time/" rel="prev">常用排序/查找算法时间复杂度</a>
-                </span> 
-                
-                
-                <span class="pagination-item next">
-                  <a href="/./arch/newsfeed/" rel="next">新鲜事系统</a>
-                  <i class="material-icons">navigate_next</i>
-                </span> 
-              </div>
-              
-
             </div>
           </div>
-        </section>
+
+          <div class="card-content">
+            <article class="article">
+              <ul>
+<li><p>OO(Object oriented, 面向对象): 抽象数据</p></li>
+
+<li><p>FP(Functional programming, 函数式编程): 抽象行为</p>
+
+<ol>
+<li>可以并行编程<br /></li>
+<li>代码可靠性<br /></li>
+<li>代码创建和库复用<br />
+<br />
+<br />
+<br /></li>
+</ol></li>
+</ul> 
+              <a href="/./java/funtional_programming/" class="readmore">阅读全文</a>
+              
+            </article>
+
+          </div>
+
+          
+        </div>
+      </div>
+      
+    </div>
+    <div class="center">
+      <div class="pagination">
+         
+
       </div>
     </div>
   </div>
-  <footer class="page-footer">
+</div> <footer class="page-footer">
   <div class="container">
     <div class="inner">
       <div class="wrapper">
@@ -670,7 +410,6 @@ Get   /listConversationV2
   </div>
 </footer>
 </main>
-
 <script type="text/javascript" async src="//cdn.bootcss.com/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 <script type="text/javascript" src="//cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
 
